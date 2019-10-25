@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('team_id');
             $table->string('api_key');
+            $table->json('filter_keywords');
+            $table->json('regex_curations');
             $table->enum('user_role', ['Admin', 'User', 'Moderator']);
             $table->enum('status', ['Pending', 'Active']);
             $table->timestamp('email_verified_at')->nullable();
