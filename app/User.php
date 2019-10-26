@@ -36,6 +36,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'filter_keywords' => 'array',
-        'regex_curations' => 'array',
     ];
 }
