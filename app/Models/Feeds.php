@@ -9,6 +9,5 @@ class Feeds extends Model
     //
     protected $casts = [
         'filter_keywords' => 'array',
-        'regex_curations' => 'array',
     ];
 }
