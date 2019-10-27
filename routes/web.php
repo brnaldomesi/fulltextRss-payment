@@ -15,10 +15,32 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+
 Route::get('/pricing', function () {
     return view('pricing');
-});
+})->name('pricing');
 
 Route::get('/tour', function () {
     return view('tour');
+})->name('tour');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('/blog', function () {
+    return view('blog');
+})->name('blog');
+
+Route::namespace('ClientAdmin')->group(function () {
+    Route::prefix('clientAdmin')->group(function () {
+        Route::get('feeds', 'FeedsController@index')->name('feeds');
+    });
 });
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
