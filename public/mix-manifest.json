@@ -1,4 +1,17 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/css/clientAdmin.css": "/css/clientAdmin.css",
+    "/js/clientAdmin.js": "/js/clientAdmin.js",
+    "/vendors/global/vendors.bundle.css": "/vendors/global/vendors.bundle.css",
+    "/css/style.bundle.css": "/css/style.bundle.css",
+    "/css/skins/header/base/light.css": "/css/skins/header/base/light.css",
+    "/css/skins/header/menu/light.css": "/css/skins/header/menu/light.css",
+    "/css/skins/brand/dark.css": "/css/skins/brand/dark.css",
+    "/css/skins/aside/light.css": "/css/skins/aside/light.css",
+    "/vendors/global/vendors.bundle.js": "/vendors/global/vendors.bundle.js",
+    "/js/scripts.bundle.js": "/js/scripts.bundle.js",
+    "/js/pages/crud/metronic-datatable/advanced/record-selection.js": "/js/pages/crud/metronic-datatable/advanced/record-selection.js",
+    "/css/theme.css": "/css/theme.css",
+    "/js/theme.js": "/js/theme.js"
 }
