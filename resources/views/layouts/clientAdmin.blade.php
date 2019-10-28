@@ -11,15 +11,15 @@
     <title>{{ config('app.name', 'FetchRssFeeds') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
+    <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/clientAdmin.css') }}" rel="stylesheet">
+  </head>
 
 <body>
     <div id="app">
@@ -138,7 +138,7 @@
 
         <main class="py-4">
             <div class="container-fluid">
-                <div class="row-fluid">
+                <div class="row">
                     <div class="col-2">
                         <div class="well sidebar-nav">
                             <ul class="nav nav-list left-menu">
@@ -161,6 +161,36 @@
                 </div>
             </div>
         </main>
+
+        <!-- begin::Global Config(global config for global JS sciprts) -->
+        <script>
+          var KTAppOptions = {
+            "colors": {
+              "state": {
+                "brand": "#5d78ff",
+                "dark": "#282a3c",
+                "light": "#ffffff",
+                "primary": "#5867dd",
+                "success": "#34bfa3",
+                "info": "#36a3f7",
+                "warning": "#ffb822",
+                "danger": "#fd3995"
+              },
+              "base": {
+                "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+                "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+              }
+            }
+          };
+        </script>
+
+        @if (config('app.env') == 'local')
+          <script src="http://localhost:35729/livereload.js"></script>
+        @endif
+
+        <script src="{{ asset('js/theme.js') }}"></script> 
+
+        @yield('extraJs')
     </div>
 </body>
 
