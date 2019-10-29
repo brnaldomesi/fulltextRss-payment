@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'FetchRssFeeds') }}</title>
 
     <!-- Scripts -->
-    
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
     <link href="{{ asset('css/clientAdmin.css') }}" rel="stylesheet">
-  </head>
+</head>
 
 <body>
     <div id="app">
@@ -91,7 +91,6 @@
                                     <i class="fa fa-link"></i>
                                     {{ __('Show me the master RSS Feed') }}
                                 </a>
-
                             </div>
                         </li>
 
@@ -118,7 +117,8 @@
                                 {{ Auth::user()->email }} <span class="caret"></span>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right left-auto" aria-labelledby="
+                                navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
                                     <i class="fa fa-sign-out fa-rotate-180"></i>
@@ -143,15 +143,32 @@
                         <div class="well sidebar-nav">
                             <ul class="nav nav-list left-menu">
                                 <li class="nav-header"><i class="fa fa-tachometer fa-2x"></i> Administration</li>
-                                <li><a href="#"><i class="fa fa-users"></i> Team Members</a></li>
-                                <li><a href="#"><i class="fa fa-rss"></i> News Feed Channels</a></li>
-                                <li class="active"><a href="#"><i class="fa fa-pencil-square-o"></i> Sender
-                                        Credentials</a></li>
+                                <li>
+                                    <a href="#" class="@if(Request::segment(2)=='teams') active @endif">
+                                        <i class="fa fa-users"></i> Team Members
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('feeds') }}"
+                                        class="@if(Request::segment(2)=='feeds') active @endif">
+                                        <i class="fa fa-rss"></i> News Feed Channels
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="@if(Request::segment(2)=='sender') active @endif">
+                                        <i class="fa fa-pencil-square-o"></i> Sender Credentials
+                                    </a>
+                                </li>
                                 <li class="nav-header"><i class="fa fa-line-chart fa-2x"></i> Statistics</li>
                                 <li><a href="#"><i class="fa fa-area-chart"></i> Account Statistics</a></li>
                                 <li><a href="#"><i class="fa fa-bar-chart"></i> Member Statistics</a></li>
                                 <li class="nav-header"><i class="fa fa-user fa-2x"></i> Profile</li>
-                                <li><a href="#"><i class="fa fa-sign-out fa-rotate-180"></i> Logout</a></li>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                  document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-sign-out fa-rotate-180"></i> Logout
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -164,31 +181,31 @@
 
         <!-- begin::Global Config(global config for global JS sciprts) -->
         <script>
-          var KTAppOptions = {
+        var KTAppOptions = {
             "colors": {
-              "state": {
-                "brand": "#5d78ff",
-                "dark": "#282a3c",
-                "light": "#ffffff",
-                "primary": "#5867dd",
-                "success": "#34bfa3",
-                "info": "#36a3f7",
-                "warning": "#ffb822",
-                "danger": "#fd3995"
-              },
-              "base": {
-                "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
-                "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
-              }
+                "state": {
+                    "brand": "#5d78ff",
+                    "dark": "#282a3c",
+                    "light": "#ffffff",
+                    "primary": "#5867dd",
+                    "success": "#34bfa3",
+                    "info": "#36a3f7",
+                    "warning": "#ffb822",
+                    "danger": "#fd3995"
+                },
+                "base": {
+                    "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+                    "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+                }
             }
-          };
+        };
         </script>
 
         @if (config('app.env') == 'local')
-          <script src="http://localhost:35729/livereload.js"></script>
+        <!-- <script src="http://localhost:35729/livereload.js"></script> -->
         @endif
 
-        <script src="{{ asset('js/theme.js') }}"></script> 
+        <script src="{{ asset('js/theme.js') }}"></script>
 
         @yield('extraJs')
     </div>

@@ -3,20 +3,42 @@
 @import 'variables';
 
 div#app{
-    nav.navbar-client-admin{
+
+    .left-auto {
+        left: auto;
+    }
+
+    nav.navbar-client-admin {
         background-image: -webkit-linear-gradient(top, #134024, #00260e);
     }
     
-    .text-grey{
+    .text-grey {
         color: $grey;
     }
 
-    .text-grey:hover{
+    .text-grey:hover {
         color: white;
     }
 
-    .dropdown-item:hover{
-        background-color: #51A351
+    .dropdown-item {
+        color: black;
+        
+        i {
+            color: black;
+        }
+        
+        &:hover {
+            color: white;
+            background-color: #51A351;
+
+            i {
+                color: white;
+            }
+        }
+    }
+
+    .dropdown-menu {
+        min-width: 18rem;
     }
 
     .well {
@@ -40,23 +62,26 @@ div#app{
                 padding: 19px;
             }
 
-            li > a{
-                padding: 19px;
-                padding-top: 10px;
-                padding-bottom: 10px; 
-                display: block;
-                color: #51A351;
-            }
+            li {
 
-            li > a:hover{
-                color: black;
-                text-decoration: none;
-                background-color: #eeeeee;
-            }
+                &>a {
+                    padding: 19px;
+                    padding-top: 10px;
+                    padding-bottom: 10px; 
+                    display: block;
+                    color: #51A351;
 
-            li > a:active{
-                color: white;
-                background-color: #51A351;
+                    &.active {
+                        color: white;
+                        background-color: #51A351;
+                    }
+
+                    &:hover {
+                        color: black;
+                        text-decoration: none;
+                        background-color: #eeeeee;
+                    }
+                }
             }
         }
     }
