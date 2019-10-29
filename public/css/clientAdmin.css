@@ -3053,6 +3053,10 @@
   clip: auto;
 }
 
+div#app .left-auto {
+  left: auto;
+}
+
 div#app nav.navbar-client-admin {
   background-image: -webkit-linear-gradient(top, #134024, #00260e);
 }
@@ -3065,8 +3069,25 @@ div#app .text-grey:hover {
   color: white;
 }
 
+div#app .dropdown-item {
+  color: black;
+}
+
+div#app .dropdown-item i {
+  color: black;
+}
+
 div#app .dropdown-item:hover {
+  color: white;
   background-color: #51A351;
+}
+
+div#app .dropdown-item:hover i {
+  color: white;
+}
+
+div#app .dropdown-menu {
+  min-width: 18rem;
 }
 
 div#app .well {
@@ -3098,14 +3119,14 @@ div#app .well .left-menu li > a {
   color: #51A351;
 }
 
+div#app .well .left-menu li > a.active {
+  color: white;
+  background-color: #51A351;
+}
+
 div#app .well .left-menu li > a:hover {
   color: black;
   text-decoration: none;
   background-color: #eeeeee;
-}
-
-div#app .well .left-menu li > a:active {
-  color: white;
-  background-color: #51A351;
 }
 
