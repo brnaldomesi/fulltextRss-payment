@@ -3124,7 +3124,7 @@ div#app .well .left-menu li > a.active {
   background-color: #51A351;
 }
 
-div#app .well .left-menu li > a:hover {
+div#app .well .left-menu li > a:not(.active):hover {
   color: black;
   text-decoration: none;
   background-color: #eeeeee;

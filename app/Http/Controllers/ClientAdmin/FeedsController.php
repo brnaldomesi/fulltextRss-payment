@@ -14,7 +14,7 @@ class FeedsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+      
     }
 
     /**
@@ -24,6 +24,15 @@ class FeedsController extends Controller
      */
     public function index()
     {
-        return view('clientAdmin.feeds.index');
+      return view('clientAdmin.feeds.index');
+    }
+    
+    public function new()
+    {
+      return view('clientAdmin.feeds.new');
+    }
+
+    public function store() {
+
     }
 }
