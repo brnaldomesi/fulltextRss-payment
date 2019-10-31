@@ -37,8 +37,37 @@
       </div>
     </div>
   @else
-    <div>
-      Welcome!
-    </div>
+    @if(session()->get('success'))
+      
+      <!-- <div class="alert alert-success">
+          {{ session()->get('success') }}
+      </div> -->
+      <script>
+        var success = {{json_encode(session()->get('success'))}}
+        toastr.options = {
+          "closeButton": false,
+          "debug": false,
+          "newestOnTop": false,
+          "progressBar": false,
+          "positionClass": "toast-top-center",
+          "preventDuplicates": false,
+          "onclick": null,
+          "showDuration": "300",
+          "hideDuration": "1000",
+          "timeOut": "5000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        };
+
+        toastr.success(success);
+      </script>
+    @else
+        <div>
+          welcome!
+        </div>
+    @endif
   @endif
 @endsection

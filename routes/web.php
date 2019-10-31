@@ -41,10 +41,10 @@ Route::group(['middleware' => 'auth'], function () {
       Route::get('feeds', 'FeedsController@index')->name('feeds');
       Route::get('feeds/new', 'FeedsController@new')->name('feeds.new');
       Route::post('feeds/store', 'FeedsController@store')->name('feeds.store');
-      Route::get('/home', 'HomeController@index')->name('home');
-      Route::get('/plans', 'PlanController@index')->name('plans.index');
-      Route::get('/plan/{plan}', 'PlanController@show')->name('plans.show');
-      Route::post('/subscription', 'SubscriptionController@create')->name('subscription.create');
+      Route::get('home', 'HomeController@index')->name('home');
+      Route::get('plans', 'PlanController@index')->name('plans.index');
+      Route::get('plan/{plan}/{billing_method}', 'PlanController@show')->name('plans.show');
+      Route::post('subscription', 'SubscriptionController@create')->name('subscription.create');
     });
   });
 });

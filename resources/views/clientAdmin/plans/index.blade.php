@@ -12,7 +12,7 @@
                           <h5>{{ $plan->name }}</h5>
                           <h5>${{ number_format($plan->cost, 2) }} monthly</h5>
                           <h5>{{ $plan->description }}</h5>
-                          <a href="{{ route('plans.show', $plan->slug) }}"
+                          <a href="{{ route('plans.show', ['plan' => $plan->slug, 'billing_method' => $billing_method]) }}"
                               class="btn btn-outline-dark pull-right">Choose</a>
                       </div>
                   </li>
