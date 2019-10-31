@@ -3130,3 +3130,7 @@ div#app .well .left-menu li > a:not(.active):hover {
   background-color: #eeeeee;
 }
 
+.toast-client-admin {
+  margin-top: 8em;
+}
+

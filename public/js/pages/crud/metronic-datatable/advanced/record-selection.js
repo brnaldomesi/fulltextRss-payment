@@ -349,7 +349,7 @@ jQuery(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Task\yan-huang\FetchRSSFeeds\resources\dist\js\demo1\pages\crud\metronic-datatable\advanced\record-selection.js */"./resources/dist/js/demo1/pages/crud/metronic-datatable/advanced/record-selection.js");
+module.exports = __webpack_require__(/*! E:\Projects\FetchRSSFeeds\resources\dist\js\demo1\pages\crud\metronic-datatable\advanced\record-selection.js */"./resources/dist/js/demo1/pages/crud/metronic-datatable/advanced/record-selection.js");
 
 
 /***/ })

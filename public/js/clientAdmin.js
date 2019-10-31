@@ -104,7 +104,7 @@ $(document).ready(function () {});
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Task\yan-huang\FetchRSSFeeds\resources\js\clientAdmin.js */"./resources/js/clientAdmin.js");
+module.exports = __webpack_require__(/*! E:\Projects\FetchRSSFeeds\resources\js\clientAdmin.js */"./resources/js/clientAdmin.js");
 
 
 /***/ })
