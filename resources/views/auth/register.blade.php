@@ -70,7 +70,7 @@
                         </div>
                         --}}
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                           <div class="col">
                             <select class="form-control" name="payment-plan">
                               <option value='monthly'>{{ __('Monthly payment') }}</option>
@@ -86,12 +86,12 @@
                               <option value='credit-card'>{{ __('Secure Credit Card') }}</option>
                             </select>
                           </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row mb-0 text-center">
                             <div class="col">
                                 <button type="submit" class="btn btn-danger">
-                                    {{ __('Purchase Your Premium Subscription') }}
+                                    {{ __('Create your free account') }}
                                 </button>
                             </div>
                         </div>

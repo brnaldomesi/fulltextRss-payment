@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/clientAdmin/feeds';
+    protected $redirectTo = '/clientAdmin/home';
 
     /**
      * Create a new controller instance.
@@ -71,7 +71,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'team_id' => $team->id,
             'user_role' => 'Admin',
-            'status' => 'Active'
+            'status' => 'Pending'
         ]);
     }
 }
