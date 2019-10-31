@@ -17,6 +17,8 @@ class PlanController extends Controller
 
     public function show(Plan $plan, Request $request)
     {
-        return view('clientAdmin.plans.show', compact('plan'));
+        // $paymentMethods = $request->user()->paymentMethods();
+        $intent = $request->user()->createSetupIntent();
+        return view('clientAdmin.plans.show', compact('plan', 'intent'));
     }
 }
