@@ -13,10 +13,17 @@ class SubscriptionController extends Controller
     {
         $plan = Plan::findOrFail($request->get('plan'));
         
-        $request->user()
-            ->newSubscription('main', $plan->stripe_plan)
-            ->create($request->stripeToken);
+        $user = $request->user();
+        $paymentMethod = $request->paymentMethod;
 
-        return redirect()->route('clientAdmin.home')->with('success', 'Your plan subscribed successfully');
+        $user->createOrGetStripeCustomer();
+        $user->updateDefaultPaymentMethod($paymentMethod);
+        $user
+            ->newSubscription('main', $plan->stripe_plan)
+            ->trialDays(7)
+            ->create($paymentMethod, [
+                'email' => $user->email,
+            ]);
+        return redirect()->route('home')->with('success', 'Your plan subscribed successfully');
     }
 }

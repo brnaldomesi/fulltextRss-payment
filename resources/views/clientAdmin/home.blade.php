@@ -1,7 +1,7 @@
 @extends('layouts.clientAdmin')
 
 @section('content')
-  @if(Auth::user() && Auth::user()->status == 'Pending')
+  @if(Auth::user() && Auth::user()->status == 'Pending' && Auth::user()->stripe_id == NULL)
     <div class="col-md-4 mt-5">
       <div class="card">
         <div class="card-header">{{ __('Purchase Your Premium Subscription') }}</div>
