@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand text-success font-weight-bold" href="#">
-                    {{ __('All-in-one RSS Content Engine & Big Data') }}
+                  <h1>{{ __('Full Text RSS Feeds') }}<sup>{{ __('Engine & API') }}</sup></h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

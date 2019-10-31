@@ -12,34 +12,39 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+  return view('home');
 });
 
 Route::get('/home', function () {
-    return view('home');
+  return view('home');
 })->name('home');
 
 Route::get('/pricing', function () {
-    return view('pricing');
+  return view('pricing');
 })->name('pricing');
 
 Route::get('/tour', function () {
-    return view('tour');
+  return view('tour');
 })->name('tour');
 
 Route::get('/contact', function () {
-    return view('contact');
+  return view('contact');
 })->name('contact');
 
 Route::get('/blog', function () {
-    return view('blog');
+  return view('blog');
 })->name('blog');
 
-Route::namespace('ClientAdmin')->group(function () {
+Route::group(['middleware' => 'auth'], function () {
+  Route::namespace('ClientAdmin')->group(function () {
     Route::prefix('clientAdmin')->group(function () {
-        Route::get('feeds', 'FeedsController@index')->name('feeds');
+      Route::get('feeds', 'FeedsController@index')->name('feeds');
+      Route::get('feeds/new', 'FeedsController@new')->name('feeds.new');
+      Route::post('feeds/store', 'FeedsController@store')->name('feeds.store');
     });
+  });
 });
+
 
 Auth::routes();
 

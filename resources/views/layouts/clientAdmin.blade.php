@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'FetchRssFeeds') }}</title>
+    <title>{{ config('app.name', 'Full Text RSS Feeds Engine & API | Content Aggregator') }}</title>
 
     <!-- Scripts -->
 
@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-client-admin">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" href="#">
-                    {{ __('FetchRSSFeeds.COM') }}
+                  <h1>{{ __('Full Text RSS Feeds') }}<sup>{{ __('Engine & API') }}</sup></h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -173,7 +173,13 @@
                         </div>
                     </div>
                     <div class="col-10">
-                        @yield('content')
+                      <div class="container">
+                        <div class="row justify-content-center">
+                          <div class="col-md-12">
+                            @yield('content')
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -202,12 +208,13 @@
         </script>
 
         @if (config('app.env') == 'local')
-        <!-- <script src="http://localhost:35729/livereload.js"></script> -->
+          <!-- <script src="http://localhost:35729/livereload.js"></script> -->
         @endif
-
         <script src="{{ asset('js/theme.js') }}"></script>
 
         @yield('extraJs')
+
+        <script src="{{ asset('js/clientAdmin.js') }}"></script>
     </div>
 </body>
 

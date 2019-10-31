@@ -76,10 +76,12 @@ div#app{
                         background-color: #51A351;
                     }
 
-                    &:hover {
-                        color: black;
-                        text-decoration: none;
-                        background-color: #eeeeee;
+                    &:not(.active) {
+                        &:hover {
+                            color: black;
+                            text-decoration: none;
+                            background-color: #eeeeee;
+                        }
                     }
                 }
             }
