@@ -31,7 +31,20 @@
         </div>
     </div>
   @else
-    paypal!!!!!!!!!!
+    <div class="col-md-4 mt-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <a class="m-auto" href="https://www.paypal.com/in/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/in/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
+                        <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png" border="0" alt="PayPal Logo">
+                    </a>
+                </div>
+                <div class="row mt-3">
+                    <a href="{{ route('paypal.ec-checkout', ['plan' => $plan->slug]) }}?mode=recurring" class="btn btn-success w-100">Pay ${{ $plan->cost }} from Paypal</a>
+                </div>
+              </div>
+        </div>
+    </div>
   @endif
 @endsection
 @section('extraJs')

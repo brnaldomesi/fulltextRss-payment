@@ -1,8 +1,14 @@
 @extends('layouts.clientAdmin')
 
 @section('content')
-  @if(Auth::user() && Auth::user()->status == 'Pending' && Auth::user()->stripe_id == NULL)
-    <div class="col-md-4 mt-5">
+  @if(Auth::user() && Auth::user()->status == 'Pending')
+  <div class="col-md-4 mt-5">
+      @if(session()->get('code') == 'danger')
+          <script>
+            var error = '{{json_encode(session()->get('message'))}}'
+            toastr.error(error);
+          </script>
+      @endif
       <div class="card">
         <div class="card-header">{{ __('Purchase Your Premium Subscription') }}</div>
         <div class="card-body">
@@ -35,39 +41,18 @@
           </form>
         </div>
       </div>
-    </div>
+  </div>
   @else
-    @if(session()->get('success'))
-      
-      <!-- <div class="alert alert-success">
-          {{ session()->get('success') }}
-      </div> -->
-      <script>
-        var success = {{json_encode(session()->get('success'))}}
-        toastr.options = {
-          "closeButton": false,
-          "debug": false,
-          "newestOnTop": false,
-          "progressBar": false,
-          "positionClass": "toast-top-center",
-          "preventDuplicates": false,
-          "onclick": null,
-          "showDuration": "300",
-          "hideDuration": "1000",
-          "timeOut": "5000",
-          "extendedTimeOut": "1000",
-          "showEasing": "swing",
-          "hideEasing": "linear",
-          "showMethod": "fadeIn",
-          "hideMethod": "fadeOut"
-        };
-
-        toastr.success(success);
-      </script>
-    @else
-        <div>
-          welcome!
-        </div>
-    @endif
+  <div class="col-md-12 mt-5">
+      @if(session()->get('code') == 'success')
+        <script>
+          var success = '{{json_encode(session()->get('message'))}}'
+          toastr.success(success);
+        </script>
+      @endif
+      <div class="mt-5">
+        Welcome !!!
+      </div>
+  </div>
   @endif
 @endsection
