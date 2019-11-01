@@ -173,6 +173,47 @@
                             </ul>
                         </div>
                     </div>
+
+                    <!-- begin::Global Config(global config for global JS sciprts) -->
+                    <script>
+                    var KTAppOptions = {
+                        "colors": {
+                            "state": {
+                                "brand": "#5d78ff",
+                                "dark": "#282a3c",
+                                "light": "#ffffff",
+                                "primary": "#5867dd",
+                                "success": "#34bfa3",
+                                "info": "#36a3f7",
+                                "warning": "#ffb822",
+                                "danger": "#fd3995"
+                            },
+                            "base": {
+                                "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+                                "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+                            }
+                        }
+                    };
+
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-top-center mt-8-em",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+                    </script>
+
                     <div class="col-10">
                       <div class="container ml-0">
                         <div class="row justify-content-center">
@@ -184,27 +225,6 @@
             </div>
         </main>
 
-        <!-- begin::Global Config(global config for global JS sciprts) -->
-        <script>
-        var KTAppOptions = {
-            "colors": {
-                "state": {
-                    "brand": "#5d78ff",
-                    "dark": "#282a3c",
-                    "light": "#ffffff",
-                    "primary": "#5867dd",
-                    "success": "#34bfa3",
-                    "info": "#36a3f7",
-                    "warning": "#ffb822",
-                    "danger": "#fd3995"
-                },
-                "base": {
-                    "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
-                    "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
-                }
-            }
-        };
-        </script>
 
         @if (config('app.env') == 'local')
           <!-- <script src="http://localhost:35729/livereload.js"></script> -->

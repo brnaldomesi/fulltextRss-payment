@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlansTable extends Migration
+class CreateInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreatePlansTable extends Migration
      */
     public function up()
     {
-        Schema::create('plans', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->string('stripe_plan');
-            $table->float('cost');
-            $table->enum('payment_plan', ['monthly', 'yearly']);
-            $table->text('description')->nullable();
+            $table->string('title');
+            $table->double('price', 2);
+            $table->boolean('paid');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreatePlansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plans');
+        Schema::dropIfExists('invoices');
     }
 }
