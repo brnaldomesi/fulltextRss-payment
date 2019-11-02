@@ -71,7 +71,7 @@ class PayPalController extends Controller
                 if ($plan->payment_plan == 'monthly') {
                   $response = $this->provider->createMonthlySubscription($response['TOKEN'], $cart['total'], $cart['subscription_desc']);
                 } else {
-                  $response = $this->provider->createMonthlySubscription($response['TOKEN'], $cart['total'], $cart['subscription_desc']);
+                  $response = $this->provider->createYearlySubscription($response['TOKEN'], $cart['total'], $cart['subscription_desc']);
                 }
                 if (!empty($response['PROFILESTATUS']) && in_array($response['PROFILESTATUS'], ['ActiveProfile', 'PendingProfile'])) {
                     $status = 'Processed';
