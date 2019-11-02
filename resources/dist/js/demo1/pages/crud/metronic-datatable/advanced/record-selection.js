@@ -10,13 +10,28 @@ var KTDatatableRecordSelectionDemo = function() {
             type: 'remote',
             source: {
                 read: {
-                    url: 'http://fetchrssfeeds.com/clientAdmin/feedsTable',
+                    url: '/clientAdmin/feedsTable',
                 },
             },
-            pageSize: 10,
+            pageSize: 5,
             serverPaging: true,
             serverFiltering: true,
             serverSorting: true,
+        },
+
+        // toolbar
+        toolbar: {
+          // toolbar placement can be at top or bottom or both top and bottom repeated
+          placement: ['bottom'],
+
+          // toolbar items
+          items: {
+            // pagination
+            pagination: {
+              // page size select
+              pageSizeSelect: [5, 10, 20, 30, 50], // display dropdown to select pagination size. -1 is used for "ALl" option
+            },
+          },
         },
 
         // column sorting
@@ -111,13 +126,24 @@ var KTDatatableRecordSelectionDemo = function() {
         datatable.on(
             'kt-datatable--on-check kt-datatable--on-uncheck kt-datatable--on-layout-updated',
             function(e) {
-                var checkedNodes = datatable.rows('.kt-datatable__row--active').nodes();
-                var count = checkedNodes.length;
-                $('#kt_datatable_selected_number').html(count);
+                // var checkedNodes = datatable.rows('.kt-datatable__row--active').nodes();
+                // var count = checkedNodes.length;
+                // $('#kt_datatable_selected_number').html(count);
+                // if (count > 0) {
+                //     $('#kt_datatable_group_action_form').collapse('show');
+                // } else {
+                //     $('#kt_datatable_group_action_form').collapse('hide');
+                // }
+
+                // datatable.checkbox() access to extension methods
+                var ids = datatable.checkbox().getSelectedId();
+                console.log('xxx is', ids);
+                var count = ids.length;
+                $('#kt_datatable_selected_number1').html(count);
                 if (count > 0) {
-                    $('#kt_datatable_group_action_form').collapse('show');
+                    $('#kt_datatable_group_action_form1').collapse('show');
                 } else {
-                    $('#kt_datatable_group_action_form').collapse('hide');
+                    $('#kt_datatable_group_action_form1').collapse('hide');
                 }
             });
 
