@@ -37,7 +37,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto flex-md-wrap">
                         <!-- Authentication Links -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
@@ -54,7 +54,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('blog') }}">{{ __('Blog') }}</a>
                         </li>
-                        <li class="nav-item mr-1">
+                        <li class="nav-item mr-1 mb-sm-1 mb-md-0">
                             <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
