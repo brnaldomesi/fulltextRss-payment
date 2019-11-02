@@ -16,10 +16,10 @@ class CreateFeedsTable extends Migration
         Schema::create('feeds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('team_id');
-            $table->string('feed_title');
+            $table->string('feed_title')->nullable();
             $table->string('feed_url');
-            $table->json('filter_keywords');
-            $table->enum('audience', ['All', 'Admin', 'Users', 'None']);
+            $table->json('filter_keywords')->nullable();
+            $table->enum('audience', ['admin', 'users']);
             $table->timestamps();
         });
     }

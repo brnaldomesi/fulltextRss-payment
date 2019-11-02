@@ -3053,6 +3053,18 @@
   clip: auto;
 }
 
+.btn-custom-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-custom-secondary:hover {
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
 div#app .left-auto {
   left: auto;
 }
