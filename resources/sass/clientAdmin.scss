@@ -3,13 +3,13 @@
 @import 'variables';
 
 .btn-custom-secondary {
-    color: #fff;
+    color: white;
     background-color: #6c757d;
     border-color: #6c757d;
 }
 
 .btn-custom-secondary:hover {
-    color: #fff;
+    color: white;
     background-color: #5a6268;
     border-color: #545b62;
 }
@@ -32,7 +32,7 @@ div#app{
         color: white;
     }
 
-    .dropdown-item {
+    /* .dropdown-item {
         color: black;
         
         i {
@@ -47,7 +47,7 @@ div#app{
                 color: white;
             }
         }
-    }
+    } */
 
     .dropdown-menu {
         min-width: 18rem;
