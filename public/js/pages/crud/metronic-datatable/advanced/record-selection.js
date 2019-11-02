@@ -141,17 +141,13 @@ var KTDatatableRecordSelectionDemo = function () {
       // callback function support for column rendering
       template: function template(row) {
         var status = {
-          'all': {
-            'title': 'All',
-            'class': 'kt-badge--brand'
-          },
           'admin': {
             'title': 'Admin',
             'class': ' kt-badge--primary'
           },
           'users': {
             'title': 'Users',
-            'class': ' kt-badge--info'
+            'class': ' kt-badge--success'
           }
         };
         return '<span class="kt-badge ' + status[row.audience]["class"] + ' kt-badge--inline kt-badge--pill">' + status[row.audience].title + '</span>';
@@ -172,7 +168,7 @@ var KTDatatableRecordSelectionDemo = function () {
                         </a>\
                         <div class="dropdown-menu dropdown-menu-right">\
                             <a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit</a>\
-                            <a class="dropdown-item" href="#"><i class="la la-delete"></i> Delete</a>\
+                            <a class="dropdown-item" href="#"><i class="la la-remove"></i> Delete</a>\
                             <a class="dropdown-item" href="#"><i class="la la-print"></i> Full Text</a>\
                             <a class="dropdown-item" href="#"><i class="la la-play"></i> Sus. Feed (me)</a>\
                             <a class="dropdown-item" href="#"><i class="la la-play"></i> Sus. Feed (global)</a>\
