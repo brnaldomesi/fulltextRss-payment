@@ -50,6 +50,8 @@ const theme = {
   ]
 }
 
+mix.browserSync('fetchrssfeeds.com')
+
 mix.js('resources/js/app.js', 'public/js')
   .js('resources/dist/js/demo1/pages/crud/metronic-datatable/advanced/record-selection.js', 'public/js/pages/crud/metronic-datatable/advanced')
   .js('resources/js/clientAdmin.js', 'public/js')

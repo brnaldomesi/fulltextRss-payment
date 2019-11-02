@@ -16,6 +16,12 @@
 
 div#app{
 
+    div#local_record_selection {
+      table {
+        min-height: auto !important;
+      }
+    }
+
     .left-auto {
         left: auto;
     }
