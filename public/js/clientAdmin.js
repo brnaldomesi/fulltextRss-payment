@@ -86,17 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/clientAdmin.js":
-/*!*************************************!*\
-  !*** ./resources/js/clientAdmin.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-$(document).ready(function () {});
-
-/***/ }),
-
 /***/ 2:
 /*!*******************************************!*\
   !*** multi ./resources/js/clientAdmin.js ***!
@@ -104,7 +93,7 @@ $(document).ready(function () {});
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Task\yan-huang\FetchRSSFeeds\resources\js\clientAdmin.js */"./resources/js/clientAdmin.js");
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'E:\\Task\\yan-huang\\FetchRSSFeeds\\resources\\js\\clientAdmin.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 /***/ })

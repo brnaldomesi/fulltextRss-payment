@@ -53,8 +53,7 @@ const theme = {
 mix.browserSync('fetchrssfeeds.com')
 
 mix.js('resources/js/app.js', 'public/js')
-  .js('resources/dist/js/demo1/pages/crud/metronic-datatable/advanced/record-selection.js', 'public/js/pages/crud/metronic-datatable/advanced')
-  .js('resources/js/clientAdmin.js', 'public/js')
+  .js('resources/js/clientAdmin/feeds.js', 'public/js/clientAdmin')
   .copy(theme.sourceCss[0], theme.destCss[0])
   .copy(theme.sourceCss[1], theme.destCss[1])
   .copy(theme.sourceCss[2], theme.destCss[2])

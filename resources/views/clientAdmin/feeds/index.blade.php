@@ -44,7 +44,7 @@
                       <label>Audience:</label>
                     </div>
                     <div class="kt-form__control">
-                      <select class="form-control bootstrap-select" id="kt_form_status">
+                      <select class="form-control bootstrap-select" id="kt_form_audience">
                         <option value="">All</option>
                         <option value="admin">Admin</option>
                         <option value="users">Users</option>
@@ -135,5 +135,5 @@
 @endsection
 
 @section('extraJs')
-  <script src="{{ asset('js/pages/crud/metronic-datatable/advanced/record-selection.js') }}"></script>
+  <script src="{{ asset('js/clientAdmin/feeds.js') }}"></script>
 @endSection

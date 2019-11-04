@@ -5,20 +5,7 @@ var KTDatatableRecordSelectionDemo = function() {
     // Private functions
 
     var options = {
-        // datasource definition
-        data: {
-            type: 'remote',
-            source: {
-                read: {
-                    url: '/clientAdmin/feedsTable',
-                },
-            },
-            pageSize: 5,
-            serverPaging: true,
-            serverFiltering: true,
-            serverSorting: true,
-        },
-
+        
         // toolbar
         toolbar: {
           // toolbar placement can be at top or bottom or both top and bottom repeated
@@ -38,10 +25,29 @@ var KTDatatableRecordSelectionDemo = function() {
         sortable: true,
 
         pagination: true,
+    };
+
+    var feedDataTable;
+    // basic demo
+    var feedTableDemo = function(apiUrl) {
+
+        // datasource definition
+        options.data = {
+          type: 'remote',
+          source: {
+              read: {
+                  url: apiUrl,
+              },
+          },
+          pageSize: 5,
+          serverPaging: true,
+          serverFiltering: true,
+          serverSorting: true,
+        }
 
         // columns definition
 
-        columns: [{
+        options.columns = [{
             field: 'id',
             title: '#',
             sortable: false,
@@ -78,34 +84,31 @@ var KTDatatableRecordSelectionDemo = function() {
             width: 110,
             overflow: 'visible',
             textAlign: 'left',
-	          autoHide: false,
-            template: function() {
-	            return '\
+            autoHide: false,
+            template: function(row) {
+              return '\
                     <div class="dropdown">\
                         <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-sm" data-toggle="dropdown">\
                             <i class="flaticon2-settings"></i>\
                         </a>\
                         <div class="dropdown-menu dropdown-menu-right">\
-                            <a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit</a>\
-                            <a class="dropdown-item" href="#"><i class="la la-remove"></i> Delete</a>\
+                            <a class="dropdown-item" href="/clientAdmin/feeds/' + row.id + '/edit"><i class="la la-edit"></i> Edit</a>\
+                            <button data-id=' + row.id + ' class="dropdown-item feed-remove-btn"><i class="la la-remove"></i> Delete</button>\
                             <a class="dropdown-item" href="#"><i class="la la-print"></i> Full Text</a>\
                             <a class="dropdown-item" href="#"><i class="la la-play"></i> Sus. Feed (me)</a>\
                             <a class="dropdown-item" href="#"><i class="la la-play"></i> Sus. Feed (global)</a>\
                         </div>\
                     </div>\
-                    <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Edit details">\
+                    <a href="/clientAdmin/feeds/' + row.id + '/edit" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Edit details">\
                         <i class="flaticon2-file"></i>\
                     </a>\
-                    <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Delete">\
+                    <button data-id=' + row.id + ' class="btn btn-sm btn-clean btn-icon btn-icon-sm feed-remove-btn" title="Delete">\
                         <i class="flaticon2-delete"></i>\
-                    </a>\
+                    </button>\
                 ';
             },
         }],
-    };
 
-    // basic demo
-    var localSelectorDemo = function() {
         // enable extension
         options.extensions = {
           checkbox: {},
@@ -116,44 +119,30 @@ var KTDatatableRecordSelectionDemo = function() {
         };
 
         var datatable = $('#local_record_selection').KTDatatable(options);
+        feedDataTable = datatable;
 
-        $('#kt_form_status').on('change', function() {
+        $('#kt_form_audience').on('change', function() {
             datatable.search($(this).val().toLowerCase(), 'audience');
         });
 
-        $('#kt_form_status,#kt_form_type').selectpicker();
+        $('#kt_form_audience').selectpicker();
 
         datatable.on(
             'kt-datatable--on-check kt-datatable--on-uncheck kt-datatable--on-layout-updated',
             function(e) {
-                // var checkedNodes = datatable.rows('.kt-datatable__row--active').nodes();
-                // var count = checkedNodes.length;
-                // $('#kt_datatable_selected_number').html(count);
-                // if (count > 0) {
-                //     $('#kt_datatable_group_action_form').collapse('show');
-                // } else {
-                //     $('#kt_datatable_group_action_form').collapse('hide');
-                // }
-
                 // datatable.checkbox() access to extension methods
                 var ids = datatable.checkbox().getSelectedId();
-                console.log('xxx is', ids);
                 var count = ids.length;
-                $('#kt_datatable_selected_number1').html(count);
+                $('#kt_datatable_selected_number').html(count);
                 if (count > 0) {
-                    $('#kt_datatable_group_action_form1').collapse('show');
+                    $('#kt_datatable_group_action_form').collapse('show');
                 } else {
-                    $('#kt_datatable_group_action_form1').collapse('hide');
+                    $('#kt_datatable_group_action_form').collapse('hide');
                 }
             });
 
         $('#kt_modal_fetch_id').on('show.bs.modal', function(e) {
-            var ids = datatable.rows('.kt-datatable__row--active').
-            nodes().
-            find('.kt-checkbox--single > [type="checkbox"]').
-            map(function(i, chk) {
-                return $(chk).val();
-            });
+            var ids = datatable.checkbox().getSelectedId();
             var c = document.createDocumentFragment();
             for (var i = 0; i < ids.length; i++) {
                 var li = document.createElement('li');
@@ -169,18 +158,18 @@ var KTDatatableRecordSelectionDemo = function() {
     };
 
     return {
-        // public functions
-        init: function() {
-            localSelectorDemo();
-        },
+      // public functions
+      initFeedTable: function(apiUrl) {
+        feedTableDemo(apiUrl);
+      },
+
+      // Get datatable
+      getFeedTable: function() {
+        return feedDataTable;
+      },
+
+      
     };
 }();
 
-jQuery(document).ready(function() {
-  $.ajaxSetup({
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-  });
-  KTDatatableRecordSelectionDemo.init();
-});
+module.exports = KTDatatableRecordSelectionDemo; 

@@ -174,7 +174,7 @@ var KTDatatableRecordSelectionDemo = function () {
       overflow: 'visible',
       textAlign: 'left',
       autoHide: false,
-      template: function template() {
+      template: function template(row) {
         return '\
                     <div class="dropdown">\
                         <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-sm" data-toggle="dropdown">\
@@ -191,9 +191,9 @@ var KTDatatableRecordSelectionDemo = function () {
                     <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Edit details">\
                         <i class="flaticon2-file"></i>\
                     </a>\
-                    <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Delete">\
+                    <button data-id=' + row.id + ' class="btn btn-sm btn-clean btn-icon btn-icon-sm feed-remove-btn" title="Delete">\
                         <i class="flaticon2-delete"></i>\
-                    </a>\
+                    </button>\
                 ';
       }
     }]
@@ -208,35 +208,24 @@ var KTDatatableRecordSelectionDemo = function () {
       input: $('#generalSearch')
     };
     var datatable = $('#local_record_selection').KTDatatable(options);
-    $('#kt_form_status').on('change', function () {
+    $('#kt_form_audience').on('change', function () {
       datatable.search($(this).val().toLowerCase(), 'audience');
     });
-    $('#kt_form_status,#kt_form_type').selectpicker();
+    $('#kt_form_audience').selectpicker();
     datatable.on('kt-datatable--on-check kt-datatable--on-uncheck kt-datatable--on-layout-updated', function (e) {
-      // var checkedNodes = datatable.rows('.kt-datatable__row--active').nodes();
-      // var count = checkedNodes.length;
-      // $('#kt_datatable_selected_number').html(count);
-      // if (count > 0) {
-      //     $('#kt_datatable_group_action_form').collapse('show');
-      // } else {
-      //     $('#kt_datatable_group_action_form').collapse('hide');
-      // }
       // datatable.checkbox() access to extension methods
       var ids = datatable.checkbox().getSelectedId();
-      console.log('xxx is', ids);
       var count = ids.length;
-      $('#kt_datatable_selected_number1').html(count);
+      $('#kt_datatable_selected_number').html(count);
 
       if (count > 0) {
-        $('#kt_datatable_group_action_form1').collapse('show');
+        $('#kt_datatable_group_action_form').collapse('show');
       } else {
-        $('#kt_datatable_group_action_form1').collapse('hide');
+        $('#kt_datatable_group_action_form').collapse('hide');
       }
     });
     $('#kt_modal_fetch_id').on('show.bs.modal', function (e) {
-      var ids = datatable.rows('.kt-datatable__row--active').nodes().find('.kt-checkbox--single > [type="checkbox"]').map(function (i, chk) {
-        return $(chk).val();
-      });
+      var ids = datatable.checkbox().getSelectedId();
       var c = document.createDocumentFragment();
 
       for (var i = 0; i < ids.length; i++) {
@@ -259,15 +248,6 @@ var KTDatatableRecordSelectionDemo = function () {
     }
   };
 }();
-
-jQuery(document).ready(function () {
-  $.ajaxSetup({
-    headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-  });
-  KTDatatableRecordSelectionDemo.init();
-});
 
 /***/ }),
 
