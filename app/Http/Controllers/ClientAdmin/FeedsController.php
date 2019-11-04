@@ -66,10 +66,16 @@ class FeedsController extends Controller
     }
     
     public function destroy(Feed $feed) {
-    $id = $feed->id;
-    $feed->delete();
-    return response()->json(['id' => $id]);
-  }
+      $id = $feed->id;
+      $feed->delete();
+      return response()->json(['id' => $id]);
+    }
+
+    public function destroyArray(Request $req) {
+      $ids = $req->ids;
+      Feed::destroy($ids);
+      return response()->json(['ids' => $ids]);
+    }
   
   public function feedsTable(Request $request) {
     $team_id = auth()->user()->team_id;

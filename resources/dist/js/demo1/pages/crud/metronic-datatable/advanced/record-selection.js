@@ -140,21 +140,6 @@ var KTDatatableRecordSelectionDemo = function() {
                     $('#kt_datatable_group_action_form').collapse('hide');
                 }
             });
-
-        $('#kt_modal_fetch_id').on('show.bs.modal', function(e) {
-            var ids = datatable.checkbox().getSelectedId();
-            var c = document.createDocumentFragment();
-            for (var i = 0; i < ids.length; i++) {
-                var li = document.createElement('li');
-                li.setAttribute('data-id', ids[i]);
-                li.innerHTML = 'Selected record ID: ' + ids[i];
-                c.appendChild(li);
-            }
-            $(e.target).find('.kt-datatable_selected_ids').append(c);
-        }).on('hide.bs.modal', function(e) {
-            $(e.target).find('.kt-datatable_selected_ids').empty();
-        });
-
     };
 
     return {
