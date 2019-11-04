@@ -53,9 +53,24 @@ class FeedsController extends Controller
       
       $input = array_merge($request->all(), ['team_id' => $user->team_id]);
       Feed::create($input);
-      return redirect()->route('feeds');
+      return redirect()->route('feeds.new');
     }
     
+    public function edit(Feed $feed) {
+      return view('clientAdmin.feeds.edit')->with('feed', $feed);
+    }
+
+    public function update(Feed $feed, Request $req) {
+      $feed->update($req->all());
+      return redirect()->route('feeds.edit', $feed);
+    }
+    
+    public function destroy(Feed $feed) {
+    $id = $feed->id;
+    $feed->delete();
+    return response()->json(['id' => $id]);
+  }
+  
   public function feedsTable(Request $request) {
     $team_id = auth()->user()->team_id;
     $feeds = Team::find($team_id)->feeds()->orderBy('created_at', 'desc')->get();
@@ -141,12 +156,6 @@ class FeedsController extends Controller
     );
 
     return $result;
-  }
-
-  public function destroy(Feed $feed) {
-    $id = $feed->id;
-    $feed->delete();
-    return response()->json(['id' => $id]);
   }
 
   function list_filter( $list, $args = array(), $operator = 'AND' )

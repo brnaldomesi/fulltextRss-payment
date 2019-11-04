@@ -72,7 +72,7 @@
     </div>
 
     <div class="form-group text-center">
-      {!! Form::submit('Create', ['class' => 'btn btn-primary mr-2']) !!}
+      {!! Form::submit('Save', ['class' => 'btn btn-primary mr-2']) !!}
       <a href="{{ route('feeds') }}" class="btn btn-custom-secondary">{{ __('Back') }}</a>
     </div>
   </div>
