@@ -53,7 +53,7 @@ class FeedsController extends Controller
       
       $input = array_merge($request->all(), ['team_id' => $user->team_id]);
       Feed::create($input);
-      return redirect()->route('feeds.new');
+      return redirect()->route('feeds.new')->with('feedStatus', 'Feed created!');
     }
     
     public function edit(Feed $feed) {
@@ -62,7 +62,7 @@ class FeedsController extends Controller
 
     public function update(Feed $feed, Request $req) {
       $feed->update($req->all());
-      return redirect()->route('feeds.edit', $feed);
+      return redirect()->route('feeds.edit', $feed)->with('feedStatus', 'Feed updated!');
     }
     
     public function destroy(Feed $feed) {

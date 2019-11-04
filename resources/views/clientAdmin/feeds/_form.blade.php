@@ -1,3 +1,9 @@
+@if (session('feedStatus'))
+  <script>
+    var success = '{{json_encode(session()->get('feedStatus'))}}'
+    toastr.success(success);
+  </script>
+@endif
 <div class="kt-portlet kt-portlet--mobile w-75">
   <div class="kt-portlet__head kt-portlet__head--lg justify-content-center">
     <div class="kt-portlet__head-label">
