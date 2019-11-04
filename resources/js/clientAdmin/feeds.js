@@ -19,14 +19,10 @@ function initFeedTable() {
           type: 'delete',
           dataType : 'json',
           success: function (response) {
+            toastr.success('Feed deleted!');
             datatable.reload();
             $(tr).addClass('kt-datatable__row--active');
             datatable.rows('.kt-datatable__row--active').remove();
-            swal.fire(
-              'Deleted!',
-              'Your feed has been deleted.',
-              'success'
-            )
           },
           error: function (jqXHR, status, error) {
           }
@@ -39,7 +35,22 @@ function initFeedTable() {
     $('tbody tr td span button.feed-remove-btn[data-id=' + $(this).attr('data-id') + ']').trigger('click');
   });
 
-  
+  $('#kt_datatable_delete_all').on('click', function (){
+    var ids = datatable.checkbox().getSelectedId();
+    $.ajax({
+      url: '/clientAdmin/feeds',
+      type: 'delete',
+      dataType : 'json',
+      data: {ids},
+      success: function (response) {
+        toastr.success('Feeds deleted!');
+        datatable.reload();
+        datatable.rows('.kt-datatable__row--active').remove();
+      },
+      error: function (jqXHR, status, error) {
+      }
+    });
+  });  
 }
 
 $(document).ready(function() {

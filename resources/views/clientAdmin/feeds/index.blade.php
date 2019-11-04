@@ -76,20 +76,7 @@
                 </div>
                 <div class="kt-form__control">
                   <div class="btn-toolbar">
-                    <div class="dropdown">
-                      <button type="button" class="btn btn-brand btn-sm dropdown-toggle" data-toggle="dropdown">
-                        Update status
-                      </button>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Pending</a>
-                        <a class="dropdown-item" href="#">Delivered</a>
-                        <a class="dropdown-item" href="#">Canceled</a>
-                      </div>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-sm btn-danger" type="button" id="kt_datatable_delete_all">Delete All</button>
-                    &nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-sm btn-success" type="button" data-toggle="modal" data-target="#kt_modal_fetch_id">Fetch Selected Records</button>
+                    <button class="btn btn-sm btn-danger" type="button" id="kt_datatable_delete_all">Delete Selected Feeds</button>
                   </div>
                 </div>
               </div>
@@ -105,30 +92,6 @@
         <div class="kt-datatable" id="local_record_selection"></div>
 
         <!--end: Datatable -->
-
-        <!--begin::Modal-->
-        <div class="modal fade" id="kt_modal_fetch_id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="kt-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-height="200">
-                  <ul class="kt-datatable_selected_ids"></ul>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--end::Modal-->
       </div>
     </div>
   </div>

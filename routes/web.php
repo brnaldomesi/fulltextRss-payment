@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
       Route::get('feeds/{feed}/edit', 'FeedsController@edit')->name('feeds.edit');
       Route::put('feeds/{feed}', 'FeedsController@update')->name('feeds.update');
       Route::delete('feeds/{feed}', 'FeedsController@destroy')->name('feeds.destroy');
+      Route::delete('feeds', 'FeedsController@destroyArray')->name('feeds.destroyArray');
       Route::get('home', 'HomeController@index')->name('home');
       Route::get('plans', 'PlanController@index')->name('plans.index');
       Route::get('plan/{plan}/{billing_method}/{payment_plan}', 'PlanController@show')->name('plans.show');
