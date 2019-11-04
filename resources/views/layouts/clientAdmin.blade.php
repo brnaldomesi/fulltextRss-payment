@@ -231,8 +231,6 @@
         @endif
 
         @yield('extraJs')
-
-        <script src="{{ asset('js/clientAdmin.js') }}"></script>
     </div>
     @yield('scripts')
 </body>

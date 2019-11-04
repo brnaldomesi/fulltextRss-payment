@@ -8714,7 +8714,7 @@ var KTWizard = function(elementId, options) {
 					// local checkbox; check if all checkboxes of currect page are checked
 					if (!datatable.hasClass(pfx + 'datatable--error') && $(datatable.tableBody).find('.' + pfx + 'checkbox--single > [type="checkbox"]').not(':checked').length < 1) {
 						// set header select all checkbox checked
-						$(datatable.tableHead).find('.' + pfx + 'checkbox--all > [type="checkbox"]').prop('checked', true);
+						$(datatable.tableHead).find('.' + pfx + 'checkbox--all > [type="checkbox"]').prop('checked', false);
 					}
 				}
 			},

@@ -143,6 +143,12 @@ class FeedsController extends Controller
     return $result;
   }
 
+  public function destroy(Feed $feed) {
+    $id = $feed->id;
+    $feed->delete();
+    return response()->json(['id' => $id]);
+  }
+
   function list_filter( $list, $args = array(), $operator = 'AND' )
   {
     if ( ! is_array( $list ) ) {
