@@ -5,7 +5,7 @@
   <div class="col-md-4 mt-5">
       @if(session()->get('code') == 'danger')
           <script>
-            var error = '{{json_encode(session()->get('message'))}}'
+            var error = '{{session()->get('message')}}'
             toastr.error(error);
           </script>
       @endif
@@ -46,7 +46,7 @@
   <div class="col-md-12">
       @if(session()->get('code') == 'success')
         <script>
-          var success = '{{json_encode(session()->get('message'))}}'
+          var success = '{{session()->get('message')}}'
           toastr.success(success);
         </script>
       @endif

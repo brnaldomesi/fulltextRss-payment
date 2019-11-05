@@ -43,7 +43,7 @@ class UserController extends Controller
       
       $input = array_merge($request->all(), ['team_id' => $user->team_id]);
       User::create($input);
-      return redirect()->route('users.new')->with('userStatus', 'user created!');
+      return redirect()->route('users.new')->with('userStatus', 'User created!');
     }
     
     public function edit(User $user) {
@@ -52,7 +52,7 @@ class UserController extends Controller
 
     public function update(User $user, Request $req) {
       $user->update($req->all());
-      return redirect()->route('users.edit', $user)->with('userStatus', 'user updated!');
+      return redirect()->route('users.edit', $user)->with('userStatus', 'User updated!');
     }
     
     public function destroy(User $user) {

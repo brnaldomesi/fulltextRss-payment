@@ -50,7 +50,7 @@ const theme = {
   ]
 }
 
-mix.browserSync('fetchrssfeeds.com')
+mix.browserSync('app.contentaggregator.com')
 
 mix.js('resources/js/app.js', 'public/js')
   .js('resources/js/clientAdmin/feeds.js', 'public/js/clientAdmin')
