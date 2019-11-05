@@ -16,7 +16,13 @@
 
 div#app{
 
-    div#local_record_selection {
+    div#feed_record_selection {
+      table {
+        min-height: auto !important;
+      }
+    }
+
+    div#user_record_selection {
       table {
         min-height: auto !important;
       }

@@ -63,7 +63,7 @@
     </div>
 
     <div class="form-group row">
-      {!! Form::label('filter_keywords', 'Keywords Filterse', ['class' => 'col-md-3 col-form-label text-md-right']) !!}
+      {!! Form::label('filter_keywords', 'Keywords Filters', ['class' => 'col-md-3 col-form-label text-md-right']) !!}
       <div class="col-md-9">
         {!! Form::text(
               'filter_keywords', 

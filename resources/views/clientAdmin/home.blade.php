@@ -1,7 +1,7 @@
 @extends('layouts.clientAdmin')
 
 @section('content')
-  @if(Auth::user() && Auth::user()->status == 'Pending')
+  @if(Auth::user() && Auth::user()->status == 'pending')
   <div class="col-md-4 mt-5">
       @if(session()->get('code') == 'danger')
           <script>

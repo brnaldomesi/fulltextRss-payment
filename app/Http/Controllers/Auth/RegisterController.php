@@ -70,8 +70,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'team_id' => $team->id,
-            'user_role' => 'Admin',
-            'status' => 'Pending'
+            'user_role' => 'admin'
         ]);
     }
 }

@@ -45,19 +45,19 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-grey" href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-grey" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fa fa-users"></i>
                                 {{ __('Team Members') }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif" onclick="">
+                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('users.new') }} @endif" onclick="">
                                     <i class="fa fa-user-plus"></i>
                                     {{ __('Add a new team member') }}
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif" onclick="">
+                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('users') }} @endif" onclick="">
                                     <i class="fa fa-street-view"></i>
                                     {{ __('Manage team members') }}
                                 </a>
@@ -66,43 +66,43 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-grey" href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-grey" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fa fa-rss"></i>
                                 {{ __('News Feed') }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif" onclick="">
+                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('feeds.new') }} @endif" onclick="">
                                     <i class="fa fa-plus-square"></i>
                                     {{ __('Create News Feed Channel') }}
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif" onclick="">
+                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('feeds') }} @endif" onclick="">
                                     <i class="fa fa-th-list"></i>
                                     {{ __('Manage News Feed Channels') }}
                                 </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif" onclick="">
+                                {{-- <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else # @endif" onclick="">
                                     <i class="fa fa-cloud-download"></i>
                                     {{ __('Download Full text RSS OPML') }}
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif" onclick="">
+                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else # @endif" onclick="">
                                     <i class="fa fa-link"></i>
                                     {{ __('Show me the master RSS Feed') }}
-                                </a>
+                                </a> --}}
                             </div>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-grey" href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif">
+                            <a class="nav-link text-grey" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('smtp') }} @endif">
                                 <i class="fa fa-pencil-square-o"></i>{{ __('Edit sender credentials') }}
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-grey" href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif">
+                            <a class="nav-link text-grey" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else # @endif">
                                 <i class="fa fa-line-chart"></i>{{ __('Statistics') }}
                             </a>
                         </li>
@@ -145,24 +145,24 @@
                             <ul class="nav nav-list left-menu">
                                 <li class="nav-header"><i class="fa fa-tachometer fa-2x"></i> Administration</li>
                                 <li>
-                                    <a href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif" class="@if(Request::segment(2)=='teams') active @endif">
+                                    <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('users') }} @endif" class="@if(Request::segment(2)=='users') active @endif">
                                         <i class="fa fa-users"></i> Team Members
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else {{ route('feeds') }} @endif"
+                                    <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('feeds') }} @endif"
                                         class="@if(Request::segment(2)=='feeds') active @endif">
                                         <i class="fa fa-rss"></i> News Feed Channels
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif" class="@if(Request::segment(2)=='sender') active @endif">
+                                    <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('smtp') }} @endif" class="@if(Request::segment(2)=='smtp') active @endif">
                                         <i class="fa fa-pencil-square-o"></i> Sender Credentials
                                     </a>
                                 </li>
                                 <li class="nav-header"><i class="fa fa-line-chart fa-2x"></i> Statistics</li>
-                                <li><a href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif"><i class="fa fa-area-chart"></i> Account Statistics</a></li>
-                                <li><a href="@if(Auth::user() && Auth::user()->status == 'Pending') # @else # @endif"><i class="fa fa-bar-chart"></i> Member Statistics</a></li>
+                                <li><a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else # @endif"><i class="fa fa-area-chart"></i> Account Statistics</a></li>
+                                <li><a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else # @endif"><i class="fa fa-bar-chart"></i> Member Statistics</a></li>
                                 <li class="nav-header"><i class="fa fa-user fa-2x"></i> Profile</li>
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();

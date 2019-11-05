@@ -28,6 +28,7 @@ var KTDatatableRecordSelectionDemo = function() {
     };
 
     var feedDataTable;
+    var userDataTable;
     // basic demo
     var feedTableDemo = function(apiUrl) {
 
@@ -118,7 +119,7 @@ var KTDatatableRecordSelectionDemo = function() {
             input: $('#generalSearch'),
         };
 
-        var datatable = $('#local_record_selection').KTDatatable(options);
+        var datatable = $('#feed_record_selection').KTDatatable(options);
         feedDataTable = datatable;
 
         $('#kt_form_audience').on('change', function() {
@@ -142,18 +143,155 @@ var KTDatatableRecordSelectionDemo = function() {
             });
     };
 
+    var userTableDemo = function(apiUrl) {
+
+        // datasource definition
+        options.data = {
+          type: 'remote',
+          source: {
+              read: {
+                  url: apiUrl,
+              },
+          },
+          pageSize: 5,
+          serverPaging: true,
+          serverFiltering: true,
+          serverSorting: true,
+        }
+
+        // columns definition
+
+        options.columns = [{
+            field: 'id',
+            title: '#',
+            sortable: false,
+            width: 20,
+            selector: {
+                class: 'kt-checkbox--solid'
+            },
+            textAlign: 'center',
+        }, {
+            field: 'name',
+            title: 'Name',
+            template: function(row) {
+              return row.name === null ? '' : row.name;
+            },
+        }, {
+            field: 'email',
+            title: 'E-mail',
+            template: '{{email}}',
+        }, {
+            field: 'filter_keywords',
+            title: 'Filters',
+            template: function(row) {
+              return row.filter_keywords === null ? '' : row.filter_keywords;
+            },
+        }, {
+            field: 'regx_curations',
+            title: 'Curation',
+            template: function(row) {
+              return row.regx_curations === null ? '' : row.regx_curations;
+            },
+        }, {
+            field: 'user_role',
+            title: 'Role',
+            template: function(row) {
+              return row.user_role === null ? '' : row.user_role;
+            },
+        }, {
+            field: 'status',
+            title: 'Status',
+            // callback function support for column rendering
+            template: function(row) {
+              var status = {
+                  'pending': {'title': 'pending', 'class': ' kt-badge--primary'},
+                  'active': {'title': 'actvie', 'class': ' kt-badge--success'},
+              };
+              return '<span class="kt-badge ' + status[row.status].class + ' kt-badge--inline kt-badge--pill">' + status[row.status].title + '</span>';
+            },
+        }, {
+            field: 'Actions',
+            title: 'Actions',
+            sortable: false,
+            width: 110,
+            overflow: 'visible',
+            textAlign: 'left',
+            autoHide: false,
+            template: function(row) {
+              if(row.user_role === 'admin') {
+                return '\
+                      <a href="/clientAdmin/users/' + row.id + '/edit" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Edit details">\
+                          <i class="flaticon2-file"></i>\
+                      </a>\
+                  ';
+              } else {
+                return '\
+                      <a href="/clientAdmin/users/' + row.id + '/edit" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Edit details">\
+                          <i class="flaticon2-file"></i>\
+                      </a>\
+                      <button data-id=' + row.id + ' class="btn btn-sm btn-clean btn-icon btn-icon-sm user-remove-btn" title="Delete">\
+                          <i class="flaticon2-delete"></i>\
+                      </button>\
+                  ';
+              }
+            },
+        }],
+
+        // enable extension
+        options.extensions = {
+          checkbox: {},
+        };
+
+        options.search = {
+            input: $('#generalSearch'),
+        };
+
+        var datatable = $('#user_record_selection').KTDatatable(options);
+        userDataTable = datatable;
+
+        $('#kt_form_status').on('change', function() {
+            datatable.search($(this).val().toLowerCase(), 'status');
+        });
+
+        $('#kt_form_user-role').on('change', function() {
+          datatable.search($(this).val().toLowerCase(), 'user_role');
+      });
+
+        $('#kt_form_status, #kt_form_user-role').selectpicker();
+
+        datatable.on(
+            'kt-datatable--on-check kt-datatable--on-uncheck kt-datatable--on-layout-updated',
+            function(e) {
+                // datatable.checkbox() access to extension methods
+                var ids = datatable.checkbox().getSelectedId();
+                var count = ids.length;
+                $('#kt_datatable_selected_number').html(count);
+                if (count > 0) {
+                    $('#kt_datatable_group_action_form').collapse('show');
+                } else {
+                    $('#kt_datatable_group_action_form').collapse('hide');
+                }
+            });
+    };
+
     return {
-      // public functions
       initFeedTable: function(apiUrl) {
         feedTableDemo(apiUrl);
       },
 
-      // Get datatable
+      // Get Feed datatable
       getFeedTable: function() {
         return feedDataTable;
       },
 
-      
+      initUserTable: function(apiUrl) {
+        userTableDemo(apiUrl);
+      },
+
+      // Get User datatable
+      getUserTable: function() {
+        return userDataTable;
+      },
     };
 }();
 

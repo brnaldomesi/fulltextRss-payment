@@ -54,6 +54,7 @@ mix.browserSync('fetchrssfeeds.com')
 
 mix.js('resources/js/app.js', 'public/js')
   .js('resources/js/clientAdmin/feeds.js', 'public/js/clientAdmin')
+  .js('resources/js/clientAdmin/users.js', 'public/js/clientAdmin')
   .copy(theme.sourceCss[0], theme.destCss[0])
   .copy(theme.sourceCss[1], theme.destCss[1])
   .copy(theme.sourceCss[2], theme.destCss[2])
