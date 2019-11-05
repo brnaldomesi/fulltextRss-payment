@@ -26,7 +26,7 @@ class SubscriptionController extends Controller
             ]);
 
         session()->put(['code' => 'success', 'message' => "Your plan subscribed successfully!"]);
-        $user->status = 'Active';
+        $user->status = 'active';
         $user->save();
         
         return redirect()->route('home');

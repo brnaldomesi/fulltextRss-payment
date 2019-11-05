@@ -46,6 +46,18 @@ Route::group(['middleware' => 'auth'], function () {
       Route::put('feeds/{feed}', 'FeedsController@update')->name('feeds.update');
       Route::delete('feeds/{feed}', 'FeedsController@destroy')->name('feeds.destroy');
       Route::delete('feeds', 'FeedsController@destroyArray')->name('feeds.destroyArray');
+
+      Route::get('users', 'UserController@index')->name('users');
+      Route::get('users/new', 'UserController@new')->name('users.new');
+      Route::post('users/store', 'UserController@store')->name('users.store');
+      Route::post('usersTable', 'UserController@usersTable')->name('users.usersTable');
+      Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');
+      Route::put('users/{user}', 'UserController@update')->name('users.update');
+      Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
+      Route::delete('users', 'UserController@destroyArray')->name('users.destroyArray');
+      
+      Route::get('smtp', 'UserController@smtp')->name('smtp');
+
       Route::get('home', 'HomeController@index')->name('home');
       Route::get('plans', 'PlanController@index')->name('plans.index');
       Route::get('plan/{plan}/{billing_method}/{payment_plan}', 'PlanController@show')->name('plans.show');

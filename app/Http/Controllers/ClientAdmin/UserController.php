@@ -5,11 +5,11 @@ namespace App\Http\Controllers\ClientAdmin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Feed;
+use App\User;
 use App\Models\Team;
 use App\Libs\Datatable\ListUtil;
 
-class FeedsController extends Controller
+class UserController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -22,65 +22,67 @@ class FeedsController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-      return Validator::make($data, [
-        'feed_url' => ['required', 'string']
-      ]);
-    }
-
-    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index() {
-      return view('clientAdmin.feeds.index');
+      return view('clientAdmin.users.index');
     }
     
     public function new() {
-      return view('clientAdmin.feeds.new');
+      return view('clientAdmin.users.new');
     }
     
     public function store(Request $request) {
+      $request->validate([
+        'email' => 'required|string|email|max:255|unique:users',
+      ]);
+
       $user = auth()->user();
       
       $input = array_merge($request->all(), ['team_id' => $user->team_id]);
-      Feed::create($input);
-      return redirect()->route('feeds.new')->with('feedStatus', 'Feed created!');
+      User::create($input);
+      return redirect()->route('users.new')->with('userStatus', 'user created!');
     }
     
-    public function edit(Feed $feed) {
-      return view('clientAdmin.feeds.edit')->with('feed', $feed);
+    public function edit(User $user) {
+      return view('clientAdmin.users.edit')->with('user', $user);
     }
 
-    public function update(Feed $feed, Request $req) {
-      $feed->update($req->all());
-      return redirect()->route('feeds.edit', $feed)->with('feedStatus', 'Feed updated!');
+    public function update(User $user, Request $req) {
+      $user->update($req->all());
+      return redirect()->route('users.edit', $user)->with('userStatus', 'user updated!');
     }
     
-    public function destroy(Feed $feed) {
-      $id = $feed->id;
-      $feed->delete();
+    public function destroy(User $user) {
+      $id = $user->id;
+      $user->delete();
       return response()->json(['id' => $id]);
     }
 
     public function destroyArray(Request $req) {
       $ids = $req->ids;
-      Feed::destroy($ids);
+      $adminId = auth()->user()->id;
+
+      if (($key = array_search($adminId, $ids)) !== false) {
+        unset($ids[$key]);
+      }
+
+      user::destroy($ids);
       return response()->json(['ids' => $ids]);
     }
   
-    public function feedsTable(Request $request) {
+    public function smtp()
+    {
+      return view('clientAdmin.users.smtp'); 
+    }
+
+    public function usersTable(Request $request) {
       $team_id = auth()->user()->team_id;
-      $feeds = Team::find($team_id)->feeds()->orderBy('created_at', 'desc')->get();
+      $users = Team::find($team_id)->users()->orderByRaw('FIELD(user_role, "admin", "user")')->orderBy('created_at', 'desc')->get();
       
-      $data = $alldata = $feeds->toArray();
+      $data = $alldata = $users->toArray();
       $datatable = array_merge(array('pagination' => array(), 'sort' => array(), 'query' => array()), $request->all());
 
       // search filter by keywords

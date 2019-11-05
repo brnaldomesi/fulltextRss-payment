@@ -3,6 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/css/clientAdmin.css": "/css/clientAdmin.css",
     "/js/clientAdmin/feeds.js": "/js/clientAdmin/feeds.js",
+    "/js/clientAdmin/users.js": "/js/clientAdmin/users.js",
     "/vendors/global/vendors.bundle.css": "/vendors/global/vendors.bundle.css",
     "/css/style.bundle.css": "/css/style.bundle.css",
     "/css/skins/header/base/light.css": "/css/skins/header/base/light.css",

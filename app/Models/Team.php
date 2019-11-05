@@ -13,4 +13,12 @@ class Team extends Model
   {
       return $this->hasMany('App\Models\Feed');
   }
+
+  /**
+   * Get the team members.
+   */
+  public function users()
+  {
+      return $this->hasMany('App\User');
+  }
 }

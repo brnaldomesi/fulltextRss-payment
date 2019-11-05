@@ -21,10 +21,10 @@ class CreateUsersTable extends Migration
             //$table->string('api_key');
             $table->json('filter_keywords')->nullable();
             $table->json('regx_curations')->nullable();
-            $table->enum('user_role', ['Admin', 'User']);
-            $table->enum('status', ['Pending', 'Active']);
+            $table->enum('user_role', ['admin', 'user'])->default('user');
+            $table->enum('status', ['pending', 'active'])->default('pending');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('stripe_id')->nullable()->collation('utf8mb4_bin');
             $table->string('card_brand')->nullable();
             $table->string('card_last_four', 4)->nullable();
