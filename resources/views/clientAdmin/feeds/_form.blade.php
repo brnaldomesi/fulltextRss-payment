@@ -1,6 +1,6 @@
 @if (session('feedStatus'))
   <script>
-    var success = '{{json_encode(session()->get('feedStatus'))}}'
+    var success = '{{session()->get('feedStatus')}}'
     toastr.success(success);
   </script>
 @endif
