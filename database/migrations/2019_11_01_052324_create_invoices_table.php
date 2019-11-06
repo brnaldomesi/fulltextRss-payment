@@ -17,7 +17,9 @@ class CreateInvoicesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->double('price', 2);
-            $table->boolean('paid');
+            $table->string('payment_status')->nullable();
+            $table->string('recurring_id')->nullable();
+            $table->Integer('user_id');
             $table->timestamps();
         });
     }

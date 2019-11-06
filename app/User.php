@@ -40,4 +40,9 @@ class User extends Authenticatable
         'filter_keywords' => 'array',
         'regx_curations' => 'array',
     ];
+
+    public function invoices() 
+    {
+        return $this->belongsTo(Invoice::class);
+    }
 }
