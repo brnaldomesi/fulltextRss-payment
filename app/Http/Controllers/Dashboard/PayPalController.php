@@ -172,6 +172,7 @@ class PayPalController extends Controller
                 $invoice->price = $post['amount'];
                 $invoice->payment_status = 'Completed';
                 $invoice->recurring_id = $post['recurring_payment_id'];
+                $invoice->user_id = Invoice::where('recurring_id', $post['recurring_payment_id'])->first()->user_id;
                 $invoice->save();
             }
         }

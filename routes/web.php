@@ -67,12 +67,11 @@ Route::group(['middleware' => 'auth'], function () {
       Route::get('paypal/ec-checkout/{plan}', 'PayPalController@getExpressCheckout')->name('paypal.ec-checkout');
       Route::get('paypal/ec-checkout-success/{plan}', 'PayPalController@getExpressCheckoutSuccess')->name('paypal.ec-checkout-success');
       Route::get('paypal/adaptive-pay', 'PayPalController@getAdaptivePay');
-      Route::post('paypal/notify', 'PayPalController@notify');
     });
   });
 });
 
-
+Route::post('paypal/notify', 'Dashboard\\PayPalController@notify');
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
