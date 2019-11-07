@@ -1,7 +1,7 @@
 var KTDatatableRecordSelectionDemo = require('../../dist/js/demo1/pages/crud/metronic-datatable/advanced/record-selection')
 
 function initUserTable() {
-  KTDatatableRecordSelectionDemo.initUserTable('/dashboard/usersTable');
+  KTDatatableRecordSelectionDemo.initUserTable('/dashboard/userstable');
   var datatable = KTDatatableRecordSelectionDemo.getUserTable();
   $('div#user_record_selection table').on('click', 'tbody tr td span button.user-remove-btn', function () {
     const id = $(this).attr('data-id');

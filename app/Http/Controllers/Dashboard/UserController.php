@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\Models\Team;
 use App\Libs\Datatable\ListUtil;
+use Illuminate\Support\Facades\Hash;
+use App\Rules\MatchOldPassword;
 
 class UserController extends Controller
 {
@@ -42,6 +44,11 @@ class UserController extends Controller
       $user = auth()->user();
       
       $input = array_merge($request->all(), ['team_id' => $user->team_id]);
+      $pwd = $input['password'];
+      if(!is_null($pwd)) {
+        $input['password'] = Hash::make($pwd);
+      }
+
       User::create($input);
       return redirect()->route('users.new')->with('userStatus', 'User created!');
     }
@@ -51,7 +58,13 @@ class UserController extends Controller
     }
 
     public function update(User $user, Request $req) {
-      $user->update($req->all());
+      $input = $req->all();
+      $pwd = $input['password'];
+      if(!is_null($pwd)) {
+        $input['password'] = Hash::make($pwd);
+      }
+      
+      $user->update($input);
       return redirect()->route('users.edit', $user)->with('userStatus', 'User updated!');
     }
     
@@ -73,6 +86,24 @@ class UserController extends Controller
       return response()->json(['ids' => $ids]);
     }
   
+    public function pwdEdit()
+    {
+      return view('dashboard.users.pwdEdit');
+    }
+
+    public function pwdUpdate(Request $req)
+    {
+      $req->validate([
+        'current_password' => ['required', new MatchOldPassword],
+        'new_password' => ['required'],
+        'new_confirm_password' => ['same:new_password'],
+      ]);
+      
+      User::find(auth()->user()->id)->update(['password' => Hash::make($req->new_password)]);
+
+      return redirect()->route('users.pwdEdit')->with('userStatus', 'Password change successfully.');
+    }
+
     public function smtp()
     {
       return view('dashboard.users.smtp'); 

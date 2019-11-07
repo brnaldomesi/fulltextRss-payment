@@ -100,12 +100,6 @@
                                 <i class="fa fa-pencil-square-o"></i>{{ __('Edit sender credentials') }}
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else # @endif">
-                                <i class="fa fa-line-chart"></i>{{ __('Statistics') }}
-                            </a>
-                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -119,6 +113,11 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right left-auto" >
+                                <a class="dropdown-item" href="{{ route('users.pwdEdit') }}">
+                                    <i class="fa fa-lock"></i>
+                                    {{ __('Change password') }}
+                                </a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
                                     <i class="fa fa-sign-out fa-rotate-180"></i>
@@ -220,15 +219,13 @@
                 </div>
             </div>
         </main>
-
-
-        @if (config('app.env') == 'local')
-          <script src="http://localhost:35729/livereload.js"></script>
-        @endif
-
-        @yield('extraJs')
     </div>
-    @yield('scripts')
+    
+    @if (config('app.env') == 'local')
+      <script src="http://localhost:35729/livereload.js"></script>
+    @endif
+
+    @yield('extraJs')
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 var KTDatatableRecordSelectionDemo = require('../../dist/js/demo1/pages/crud/metronic-datatable/advanced/record-selection')
 
 function initFeedTable() {
-  KTDatatableRecordSelectionDemo.initFeedTable('/dashboard/feedsTable');
+  KTDatatableRecordSelectionDemo.initFeedTable('/dashboard/feedstable');
   var datatable = KTDatatableRecordSelectionDemo.getFeedTable();
   $('div#feed_record_selection table').on('click', 'tbody tr td span button.feed-remove-btn', function () {
     const id = $(this).attr('data-id');

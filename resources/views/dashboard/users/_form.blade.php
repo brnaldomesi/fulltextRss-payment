@@ -75,6 +75,20 @@
       </div>
     </div>
 
+    <div class="form-group row">
+      {!! Form::label('password', 'Password', ['class' => 'col-md-3 col-form-label text-md-right']) !!}
+      <div class="col">
+        {!! Form::password(
+            'password', 
+            [
+              'class' => "form-control",
+              'autocomplete' => 'new-password'
+            ]
+          )
+        !!}
+      </div>
+  </div>
+
     <div class="form-group text-center">
       {!! Form::submit('Save', ['class' => 'btn btn-primary mr-2']) !!}
       <a href="{{ route('users') }}" class="btn btn-custom-secondary">{{ __('Back') }}</a>
