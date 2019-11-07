@@ -158,13 +158,6 @@
                                         <i class="fa fa-pencil-square-o"></i> Sender Credentials
                                     </a>
                                 </li>
-                                <li class="nav-header"><i class="fa fa-user fa-2x"></i> Profile</li>
-                                <li>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">
-                                        <i class="fa fa-sign-out fa-rotate-180"></i> Logout
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>
