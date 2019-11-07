@@ -1,4 +1,4 @@
-@extends('layouts.clientAdmin')
+@extends('layouts.dashboard')
 
 @section('content')
   <div class="col-md-12">
@@ -9,13 +9,13 @@
             <i class="kt-font-brand fa fa-rss"></i>
           </span>
           <h3 class="kt-portlet__head-title">
-            Manage Your Feeds Subscriptions
+            Manage Your Team and Sub-users
           </h3>
         </div>
         <div class="kt-portlet__head-toolbar">
           <div class="kt-portlet__head-wrapper">
             <div class="dropdown dropdown-inline">
-              <a class="btn btn-brand btn-icon-sm" href="{{ route('feeds.new') }}">
+              <a class="btn btn-brand btn-icon-sm" href="{{ route('users.new') }}">
                 <i class="flaticon2-plus"></i> Add New
               </a>
             </div>
@@ -41,13 +41,27 @@
                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                   <div class="kt-form__group kt-form__group--inline">
                     <div class="kt-form__label">
-                      <label>Audience:</label>
+                      <label>Role:</label>
                     </div>
                     <div class="kt-form__control">
-                      <select class="form-control bootstrap-select" id="kt_form_audience">
+                      <select class="form-control bootstrap-select" id="kt_form_user-role">
                         <option value="">All</option>
                         <option value="admin">Admin</option>
-                        <option value="users">Users</option>
+                        <option value="user">User</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
+                  <div class="kt-form__group kt-form__group--inline">
+                    <div class="kt-form__label">
+                      <label>Status:</label>
+                    </div>
+                    <div class="kt-form__control">
+                      <select class="form-control bootstrap-select" id="kt_form_status">
+                        <option value="">All</option>
+                        <option value="pending">Pending</option>
+                        <option value="active">Active</option>
                       </select>
                     </div>
                   </div>
@@ -70,7 +84,7 @@
                 </div>
                 <div class="kt-form__control">
                   <div class="btn-toolbar">
-                    <button class="btn btn-sm btn-danger" type="button" id="kt_datatable_delete_all">Delete Selected Feeds</button>
+                    <button class="btn btn-sm btn-danger" type="button" id="kt_datatable_delete_all">Delete Selected users</button>
                   </div>
                 </div>
               </div>
@@ -83,7 +97,7 @@
       <div class="kt-portlet__body kt-portlet__body--fit">
 
         <!--begin: Datatable -->
-        <div class="kt-datatable" id="feed_record_selection"></div>
+        <div class="kt-datatable" id="user_record_selection"></div>
 
         <!--end: Datatable -->
       </div>
@@ -92,5 +106,5 @@
 @endsection
 
 @section('extraJs')
-  <script src="{{ asset('js/clientAdmin/feeds.js') }}"></script>
+  <script src="{{ asset('js/dashboard/users.js') }}"></script>
 @endSection

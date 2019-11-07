@@ -1,4 +1,4 @@
-@extends('layouts.clientAdmin')
+@extends('layouts.dashboard')
 
 @section('content')
   <div class="col-md-10">

@@ -14,7 +14,7 @@
                         <div class="form-group row">
                             <div class="col">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
-                                  placeholder="FeedsAPI Email"
+                                  placeholder="Email"
                                 >
 
                                 @error('email')
@@ -28,7 +28,7 @@
                         <div class="form-group row">
                             <div class="col">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"
-                                  placeholder="FeedsAPI Access Key"
+                                  placeholder="Password"
                                 >
 
                                 @error('password')
@@ -54,7 +54,7 @@
                         <div class="form-group row mb-0 text-center">
                             <div class="col">
                                 <button type="submit" class="btn btn-primary w-100">
-                                    {{ __('Sign in') }}
+                                    {{ __('Login') }}
                                 </button>
                                 {{-- 
                                 @if (Route::has('password.request'))

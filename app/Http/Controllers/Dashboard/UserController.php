@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ClientAdmin;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,11 +27,11 @@ class UserController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index() {
-      return view('clientAdmin.users.index');
+      return view('dashboard.users.index');
     }
     
     public function new() {
-      return view('clientAdmin.users.new');
+      return view('dashboard.users.new');
     }
     
     public function store(Request $request) {
@@ -47,7 +47,7 @@ class UserController extends Controller
     }
     
     public function edit(User $user) {
-      return view('clientAdmin.users.edit')->with('user', $user);
+      return view('dashboard.users.edit')->with('user', $user);
     }
 
     public function update(User $user, Request $req) {
@@ -75,7 +75,7 @@ class UserController extends Controller
   
     public function smtp()
     {
-      return view('clientAdmin.users.smtp'); 
+      return view('dashboard.users.smtp'); 
     }
 
     public function usersTable(Request $request) {

@@ -1,4 +1,4 @@
-@extends('layouts.clientAdmin')
+@extends('layouts.dashboard')
 
 @section('content')
   @if(Auth::user() && Auth::user()->status == 'pending')

@@ -1,4 +1,4 @@
-@extends('layouts.clientAdmin')
+@extends('layouts.dashboard')
 
 @section('content')
   @if($billing_method == 'credit-card')

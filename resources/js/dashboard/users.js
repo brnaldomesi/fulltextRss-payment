@@ -1,9 +1,9 @@
 var KTDatatableRecordSelectionDemo = require('../../dist/js/demo1/pages/crud/metronic-datatable/advanced/record-selection')
 
-function initFeedTable() {
-  KTDatatableRecordSelectionDemo.initFeedTable('/clientAdmin/feedsTable');
-  var datatable = KTDatatableRecordSelectionDemo.getFeedTable();
-  $('div#feed_record_selection table').on('click', 'tbody tr td span button.feed-remove-btn', function () {
+function initUserTable() {
+  KTDatatableRecordSelectionDemo.initUserTable('/dashboard/usersTable');
+  var datatable = KTDatatableRecordSelectionDemo.getUserTable();
+  $('div#user_record_selection table').on('click', 'tbody tr td span button.user-remove-btn', function () {
     const id = $(this).attr('data-id');
     var tr = $(this).parentsUntil('tr').parent()[0];
     swal.fire({
@@ -15,11 +15,11 @@ function initFeedTable() {
     }).then(function(result) {
       if (result.value) {
         $.ajax({
-          url: '/clientAdmin/feeds/' + id,
+          url: '/dashboard/users/' + id,
           type: 'delete',
           dataType : 'json',
           success: function (response) {
-            toastr.success('Feed deleted!');
+            toastr.success('User deleted!');
             $(tr).addClass('kt-datatable__row--active');
             datatable.rows('.kt-datatable__row--active').remove();
             datatable.reload();
@@ -31,19 +31,15 @@ function initFeedTable() {
     });
   });
 
-  $('body').on('click', 'div.dropdown-menu.dropdown-menu-right.show button.feed-remove-btn', function (){
-    $('tbody tr td span button.feed-remove-btn[data-id=' + $(this).attr('data-id') + ']').trigger('click');
-  });
-
   $('#kt_datatable_delete_all').on('click', function (){
     var ids = datatable.checkbox().getSelectedId();
     $.ajax({
-      url: '/clientAdmin/feeds',
+      url: '/dashboard/users',
       type: 'delete',
       dataType : 'json',
       data: {ids},
       success: function (response) {
-        toastr.success('Feeds deleted!');
+        toastr.success('Users deleted!');
         datatable.reload();
         datatable.rows('.kt-datatable__row--active').remove();
       },
@@ -59,5 +55,5 @@ $(document).ready(function() {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
-  initFeedTable();  
+  initUserTable();  
 });

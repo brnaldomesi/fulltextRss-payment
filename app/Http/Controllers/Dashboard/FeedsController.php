@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ClientAdmin;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -40,11 +40,11 @@ class FeedsController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index() {
-      return view('clientAdmin.feeds.index');
+      return view('dashboard.feeds.index');
     }
     
     public function new() {
-      return view('clientAdmin.feeds.new');
+      return view('dashboard.feeds.new');
     }
     
     public function store(Request $request) {
@@ -56,7 +56,7 @@ class FeedsController extends Controller
     }
     
     public function edit(Feed $feed) {
-      return view('clientAdmin.feeds.edit')->with('feed', $feed);
+      return view('dashboard.feeds.edit')->with('feed', $feed);
     }
 
     public function update(Feed $feed, Request $req) {

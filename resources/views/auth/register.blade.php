@@ -32,7 +32,7 @@
                             --}}
                             <div class="col">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"
-                                  placeholder="Enter your email here"
+                                  placeholder="Email"
                                 >
 
                                 @error('email')
@@ -49,7 +49,7 @@
                             --}}
                             <div class="col">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"
-                                  placeholder="Your Access Key - It's like a password"
+                                  placeholder="Password"
                                 >
 
                                 @error('password')
@@ -91,7 +91,7 @@
                         <div class="form-group row mb-0 text-center">
                             <div class="col">
                                 <button type="submit" class="btn btn-danger">
-                                    {{ __('Create your free account') }}
+                                    {{ __('Register') }}
                                 </button>
                             </div>
                         </div>
