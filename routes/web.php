@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
       Route::get('feeds', 'FeedsController@index')->name('feeds');
       Route::get('feeds/new', 'FeedsController@new')->name('feeds.new');
       Route::post('feeds/store', 'FeedsController@store')->name('feeds.store');
-      Route::post('feedsTable', 'FeedsController@feedsTable')->name('feeds.feedsTable');
+      Route::post('feedstable', 'FeedsController@feedsTable')->name('feeds.feedsTable');
       Route::get('feeds/{feed}/edit', 'FeedsController@edit')->name('feeds.edit');
       Route::put('feeds/{feed}', 'FeedsController@update')->name('feeds.update');
       Route::delete('feeds/{feed}', 'FeedsController@destroy')->name('feeds.destroy');
@@ -50,7 +50,9 @@ Route::group(['middleware' => 'auth'], function () {
       Route::get('users', 'UserController@index')->name('users');
       Route::get('users/new', 'UserController@new')->name('users.new');
       Route::post('users/store', 'UserController@store')->name('users.store');
-      Route::post('usersTable', 'UserController@usersTable')->name('users.usersTable');
+      Route::post('userstable', 'UserController@usersTable')->name('users.usersTable');
+      Route::get('users/pwdedit', 'UserController@pwdEdit')->name('users.pwdEdit');
+      Route::put('users/pwdupdate', 'UserController@pwdUpdate')->name('users.pwdUpdate');
       Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');
       Route::put('users/{user}', 'UserController@update')->name('users.update');
       Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
