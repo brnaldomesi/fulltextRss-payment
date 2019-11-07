@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\ClientAdmin;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Invoice;
@@ -203,7 +203,7 @@ class PayPalController extends Controller
                     'qty'   => 1,
                 ],
             ];
-            $data['return_url'] = url('/clientAdmin/paypal/ec-checkout-success/'.$plan->slug.'?mode=recurring');
+            $data['return_url'] = url('/dashboard/paypal/ec-checkout-success/'.$plan->slug.'?mode=recurring');
             $data['subscription_desc'] = $payment_plan.' Subscription '.config('paypal.invoice_prefix').' #'.$invoice_id;
         } else {
             $data['items'] = [
@@ -213,7 +213,7 @@ class PayPalController extends Controller
                     'qty'   => 1,
                 ],
             ];
-            $data['return_url'] = url('/clientAdmin/paypal/ec-checkout-success/'.$plan->slug);
+            $data['return_url'] = url('/dashboard/paypal/ec-checkout-success/'.$plan->slug);
         }
         $data['invoice_id'] = config('paypal.invoice_prefix').'_'.$invoice_id;
         $data['invoice_description'] = "Order #". $invoice_id ."Invoice";

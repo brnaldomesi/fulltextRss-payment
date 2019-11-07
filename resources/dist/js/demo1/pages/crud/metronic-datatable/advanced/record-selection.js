@@ -93,14 +93,14 @@ var KTDatatableRecordSelectionDemo = function() {
                             <i class="flaticon2-settings"></i>\
                         </a>\
                         <div class="dropdown-menu dropdown-menu-right">\
-                            <a class="dropdown-item" href="/clientAdmin/feeds/' + row.id + '/edit"><i class="la la-edit"></i> Edit</a>\
+                            <a class="dropdown-item" href="/dashboard/feeds/' + row.id + '/edit"><i class="la la-edit"></i> Edit</a>\
                             <button data-id=' + row.id + ' class="dropdown-item feed-remove-btn"><i class="la la-remove"></i> Delete</button>\
                             <a class="dropdown-item" href="#"><i class="la la-print"></i> Full Text</a>\
                             <a class="dropdown-item" href="#"><i class="la la-play"></i> Sus. Feed (me)</a>\
                             <a class="dropdown-item" href="#"><i class="la la-play"></i> Sus. Feed (global)</a>\
                         </div>\
                     </div>\
-                    <a href="/clientAdmin/feeds/' + row.id + '/edit" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Edit details">\
+                    <a href="/dashboard/feeds/' + row.id + '/edit" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Edit details">\
                         <i class="flaticon2-file"></i>\
                     </a>\
                     <button data-id=' + row.id + ' class="btn btn-sm btn-clean btn-icon btn-icon-sm feed-remove-btn" title="Delete">\
@@ -220,13 +220,13 @@ var KTDatatableRecordSelectionDemo = function() {
             template: function(row) {
               if(row.user_role === 'admin') {
                 return '\
-                      <a href="/clientAdmin/users/' + row.id + '/edit" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Edit details">\
+                      <a href="/dashboard/users/' + row.id + '/edit" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Edit details">\
                           <i class="flaticon2-file"></i>\
                       </a>\
                   ';
               } else {
                 return '\
-                      <a href="/clientAdmin/users/' + row.id + '/edit" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Edit details">\
+                      <a href="/dashboard/users/' + row.id + '/edit" class="btn btn-sm btn-clean btn-icon btn-icon-sm" title="Edit details">\
                           <i class="flaticon2-file"></i>\
                       </a>\
                       <button data-id=' + row.id + ' class="btn btn-sm btn-clean btn-icon btn-icon-sm user-remove-btn" title="Delete">\

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ClientAdmin;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,7 +15,7 @@ class PlanController extends Controller
         $payment_plan = $request->get('payment-plan');
 
         $plans = Plan::where('payment_plan', $payment_plan)->get();
-        return view('clientAdmin.plans.index', compact('plans', 'billing_method', 'payment_plan'));
+        return view('dashboard.plans.index', compact('plans', 'billing_method', 'payment_plan'));
     }
 
     public function show(Plan $plan, $billing_method, $payment_plan, Request $request)
@@ -23,6 +23,6 @@ class PlanController extends Controller
         // $paymentMethods = $request->user()->paymentMethods();
         
         $intent = $request->user()->createSetupIntent();
-        return view('clientAdmin.plans.show', compact('plan', 'intent', 'billing_method', 'payment_plan'));
+        return view('dashboard.plans.show', compact('plan', 'intent', 'billing_method', 'payment_plan'));
     }
 }

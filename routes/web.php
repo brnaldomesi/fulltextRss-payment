@@ -36,8 +36,8 @@ Route::get('/blog', function () {
 })->name('blog');
 
 Route::group(['middleware' => 'auth'], function () {
-  Route::namespace('ClientAdmin')->group(function () {
-    Route::prefix('clientAdmin')->group(function () {
+  Route::namespace('Dashboard')->group(function () {
+    Route::prefix('dashboard')->group(function () {
       Route::get('feeds', 'FeedsController@index')->name('feeds');
       Route::get('feeds/new', 'FeedsController@new')->name('feeds.new');
       Route::post('feeds/store', 'FeedsController@store')->name('feeds.store');
