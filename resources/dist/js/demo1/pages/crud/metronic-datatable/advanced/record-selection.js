@@ -131,15 +131,14 @@ var KTDatatableRecordSelectionDemo = function() {
         datatable.on(
             'kt-datatable--on-check kt-datatable--on-uncheck kt-datatable--on-layout-updated',
             function(e) {
-                // datatable.checkbox() access to extension methods
-                var ids = datatable.checkbox().getSelectedId();
-                var count = ids.length;
-                $('#kt_datatable_selected_number').html(count);
-                if (count > 0) {
-                    $('#kt_datatable_group_action_form').collapse('show');
-                } else {
-                    $('#kt_datatable_group_action_form').collapse('hide');
-                }
+              var checkedNodes = datatable.rows('.kt-datatable__row--active').nodes();
+              var count = checkedNodes.length;
+              $('#kt_datatable_selected_number').html(count);
+              if (count > 0) {
+                  $('#kt_datatable_group_action_form').collapse('show');
+              } else {
+                  $('#kt_datatable_group_action_form').collapse('hide');
+              }
             });
     };
 
@@ -262,15 +261,14 @@ var KTDatatableRecordSelectionDemo = function() {
         datatable.on(
             'kt-datatable--on-check kt-datatable--on-uncheck kt-datatable--on-layout-updated',
             function(e) {
-                // datatable.checkbox() access to extension methods
-                var ids = datatable.checkbox().getSelectedId();
-                var count = ids.length;
-                $('#kt_datatable_selected_number').html(count);
-                if (count > 0) {
-                    $('#kt_datatable_group_action_form').collapse('show');
-                } else {
-                    $('#kt_datatable_group_action_form').collapse('hide');
-                }
+              var checkedNodes = datatable.rows('.kt-datatable__row--active').nodes();
+              var count = checkedNodes.length;
+              $('#kt_datatable_selected_number').html(count);
+              if (count > 0) {
+                  $('#kt_datatable_group_action_form').collapse('show');
+              } else {
+                  $('#kt_datatable_group_action_form').collapse('hide');
+              }
             });
     };
 

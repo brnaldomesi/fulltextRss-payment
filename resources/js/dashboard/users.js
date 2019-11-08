@@ -32,7 +32,16 @@ function initUserTable() {
   });
 
   $('#kt_datatable_delete_all').on('click', function (){
-    var ids = datatable.checkbox().getSelectedId();
+    var ids = datatable.rows('.kt-datatable__row--active').
+            nodes().
+            find('.kt-checkbox--single > [type="checkbox"]').
+            map(function(i, chk) {
+                return $(chk).val();
+            });
+    delete ids.prevObject;
+    delete ids.length;
+    ids = Object.values(ids);
+
     $.ajax({
       url: '/dashboard/users',
       type: 'delete',

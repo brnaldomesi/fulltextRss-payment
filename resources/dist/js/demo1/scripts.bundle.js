@@ -8676,7 +8676,7 @@ var KTWizard = function(elementId, options) {
 					// local checkbox header check
 					if (!options.vars.requestIds && Extension.selectedRows.length < 1) {
 						// remove select all checkbox, if there is no checked checkbox left
-						$(datatable.tableHead).find('.' + pfx + 'checkbox--all > [type="checkbox"]').prop('checked', false);
+						$(datatable.tableHead).find('.' + pfx + 'checkbox--all > [type="checkbox"]').prop('checked', true);
 					}
 
 					var storage = {};
