@@ -20,7 +20,6 @@ class CreateTransactionsTable extends Migration
             $table->string('payment_status')->nullable();
             $table->string('recurring_id')->nullable();
             $table->Integer('user_id');
-            $table->timestamp('date')->nullable();
             $table->timestamps();
         });
     }

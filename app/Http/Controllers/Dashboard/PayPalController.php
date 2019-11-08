@@ -6,6 +6,7 @@ use App\Invoice;
 use App\IPNStatus;
 use App\Plan;
 use App\Transaction;
+use App\User;
 
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\AdaptivePayments;
@@ -119,6 +120,7 @@ class PayPalController extends Controller
         if ($invoice->paid) {
             $user = auth()->user();
             $user->status = 'active';
+            $user->plan_id = $plan->id;
             if ($user->trial_ends_at == NULL) {
                 $user->trial_ends_at = Carbon::now()->addDays(7);
             }
@@ -179,51 +181,65 @@ class PayPalController extends Controller
         $ipn->payload = json_encode($post);
         $ipn->status = $response;
         $ipn->save();
-
+        
         if ($response === 'VERIFIED') {
             if ($post['txn_type'] == 'recurring_payment' && $post['payment_status'] == 'Completed') {
                 $invoice = Invoice::where('recurring_id', $post['recurring_payment_id'])->latest()->first();
-                $invoice->payment_status = 'Completed';
-                $invoice->save();
-
-                $transaction = new Transaction();
-                $transaction->invoice_id = $invoice->id;
-                $transaction->price = $post['amount'];
-                $transaction->date = Carbon::now();
-                $transaction->payment_status = 'Completed';
-                $transaction->recurring_id = $invoice->recurring_id;
-                $transaction->user_id = $invoice->user_id;
-                $transaction->save();
-
-                User::find($invoice->user_id)->update(['status' => 'active']);
+                if ($invoice) {
+                    $invoice->payment_status = 'Completed';
+                    $invoice->save();
+    
+                    $transaction = new Transaction();
+                    $transaction->invoice_id = $invoice->id;
+                    $transaction->price = $post['amount'];
+                    $transaction->payment_status = 'Completed';
+                    $transaction->recurring_id = $invoice->recurring_id;
+                    $transaction->user_id = $invoice->user_id;
+                    $transaction->save();
+    
+                    $user = User::find($invoice->user_id);
+                    $user->status = 'active';
+                    $user->save();
+                }
             }
 
             if ($post['txn_type'] == 'recurring_payment_failed') {
                 $invoice = Invoice::where('recurring_id', $post['recurring_payment_id'])->latest()->first();
-                $invoice->payment_status = 'Failed';
-                $invoice->save();
-
-                $transaction = new Transaction();
-                $transaction->invoice_id = $invoice->id;
-                $transaction->price = $post['amount'];
-                $transaction->date = Carbon::now();
-                $transaction->payment_status = 'Failed';
-                $transaction->recurring_id = $invoice->recurring_id;
-                $transaction->user_id = $invoice->user_id;
-                $transaction->save();
-
-                User::find($invoice->user_id)->update(['status' => 'pending']);
-
-                //some code for de-activated email
+                
+                if ($invoice) {
+                    $invoice->payment_status = 'Failed';
+                    $invoice->save();
+    
+                    $transaction = new Transaction();
+                    $transaction->invoice_id = $invoice->id;
+                    $transaction->price = $post['amount'];
+                    $transaction->payment_status = 'Failed';
+                    $transaction->recurring_id = $invoice->recurring_id;
+                    $transaction->user_id = $invoice->user_id;
+                    $transaction->save();
+    
+                    $user = User::find($invoice->user_id);
+                    $user->status = 'pending';
+                    $user->save();
+                    //some code for de-activated email
+                }
             }
 
             if ($post['txn_type'] == 'recurring_payment_profile_cancel') {
                 $invoice = Invoice::where('recurring_id', $post['recurring_payment_id'])->latest()->first();
-                $invoice->payment_status = 'Canceled';
-                $invoice->save();
-                User::find($invoice->user_id)->update(['status' => 'pending']);
+                
+                if ($invoice) {
+                    $invoice->payment_status = 'Canceled';
+                    $invoice->save();
+    
+                    $user = User::find($invoice->user_id);
+                    $user->status = 'pending';
+                    $user->save();
+                }
             }
         }
+        
+        return '';
     }
     /**
      * Set cart data for processing payment on PayPal.

@@ -25,10 +25,10 @@ class SubscriptionController extends Controller
                 'email' => $user->email,
             ]);
 
-        session()->put(['code' => 'success', 'message' => "Your plan subscribed successfully!"]);
         $user->status = 'active';
+        $user->plan_id = $plan->id;
         $user->save();
         
-        return redirect()->route('home');
+        return redirect()->route('home')->with(['code' => 'success', 'message' => 'Your plan subscribed successfully!']);
     }
 }
