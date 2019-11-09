@@ -59,6 +59,9 @@ Route::group(['middleware' => 'auth'], function () {
       
       Route::get('smtp', 'UserController@smtp')->name('smtp');
 
+      Route::get('transactions', 'TransactionController@index')->name('transactions');
+      Route::post('transactionstable', 'TransactionController@transactionsTable')->name('transactions.transactionsTable');
+
       Route::get('home', 'HomeController@index')->name('home');
       Route::get('plans', 'PlanController@index')->name('plans.index');
       Route::get('plan/{plan}/{billing_method}/{payment_plan}', 'PlanController@show')->name('plans.show');
