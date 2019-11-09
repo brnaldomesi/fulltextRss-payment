@@ -3,6 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/css/dashboard.css": "/css/dashboard.css",
     "/js/dashboard/feeds.js": "/js/dashboard/feeds.js",
+    "/js/dashboard/transactions.js": "/js/dashboard/transactions.js",
     "/js/dashboard/users.js": "/js/dashboard/users.js",
     "/vendors/global/vendors.bundle.css": "/vendors/global/vendors.bundle.css",
     "/css/style.bundle.css": "/css/style.bundle.css",

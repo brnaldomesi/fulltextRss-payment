@@ -100,6 +100,11 @@
                                 <i class="fa fa-pencil-square-o"></i>{{ __('Edit sender credentials') }}
                             </a>
                         </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('transactions') }} @endif">
+                              <i class="fa fa-dollar-sign"></i>{{ __('Transactions') }}
+                          </a>
+                      </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -158,6 +163,11 @@
                                         <i class="fa fa-pencil-square-o"></i> Sender Credentials
                                     </a>
                                 </li>
+                                <li>
+                                  <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('transactions') }} @endif" class="@if(Request::segment(2)=='transactions') active @endif">
+                                      <i class="fa fa-dollar-sign"></i> Transactions
+                                  </a>
+                              </li>
                             </ul>
                         </div>
                     </div>

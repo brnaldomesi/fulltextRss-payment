@@ -1,14 +1,7 @@
 <?php
-/**
- * List utility class
- */
+
 namespace App\Libs\Datatable;
-/**
- * List utility.
- *
- * Utility class to handle operations on an array of objects.
- *
- */
+
 class ListUtil
 {
 	/**

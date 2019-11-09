@@ -43,6 +43,10 @@ class User extends Authenticatable
 
     public function invoices() 
     {
-        return $this->belongsTo(Invoice::class);
+        return $this->belongsTo('App\Invoice');
+    }
+
+    public function transactions() {
+      return $this->hasMany('App\Transaction');
     }
 }

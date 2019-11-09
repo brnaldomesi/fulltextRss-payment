@@ -29,6 +29,12 @@ div#app{
       }
     }
 
+    div#transaction_record_selection {
+      table {
+        min-height: auto !important;
+      }
+    }
+
     .left-auto {
         left: auto;
     }
