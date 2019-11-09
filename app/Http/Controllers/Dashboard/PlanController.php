@@ -20,9 +20,13 @@ class PlanController extends Controller
 
     public function show(Plan $plan, $billing_method, $payment_plan, Request $request)
     {
-        // $paymentMethods = $request->user()->paymentMethods();
-        
         $intent = $request->user()->createSetupIntent();
         return view('dashboard.plans.show', compact('plan', 'intent', 'billing_method', 'payment_plan'));
+    }
+
+    public function userplan(Request $request)
+    {   
+        $plan = Plan::find(auth()->user()->plan_id);
+        return view('dashboard.plans.userplan')->with('plan', $plan);
     }
 }

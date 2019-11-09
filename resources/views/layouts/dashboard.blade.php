@@ -164,10 +164,14 @@
                                     </a>
                                 </li>
                                 <li>
-                                  <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('transactions') }} @endif" class="@if(Request::segment(2)=='transactions') active @endif">
-                                      <i class="fa fa-dollar-sign"></i> Transactions
-                                  </a>
-                              </li>
+                                    <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('transactions') }} @endif" class="@if(Request::segment(2)=='transactions') active @endif">
+                                        <i class="fa fa-dollar-sign"></i> Transactions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('userplan') }} @endif" class="@if(Request::segment(2)=='userplan') active @endif">
+                                        <i class="fa fa-edit"></i> My Plan
+                                    </a>
                             </ul>
                         </div>
                     </div>
