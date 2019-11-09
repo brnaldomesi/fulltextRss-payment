@@ -66,6 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
       Route::get('plans', 'PlanController@index')->name('plans.index');
       Route::get('plan/{plan}/{billing_method}/{payment_plan}', 'PlanController@show')->name('plans.show');
       Route::post('subscription', 'SubscriptionController@create')->name('subscription.create');
+      Route::get('subscription/cancel', 'SubscriptionController@cancel')->name('subscription.cancel');
       Route::get('paypal/ec-checkout/{plan}', 'PayPalController@getExpressCheckout')->name('paypal.ec-checkout');
       Route::get('paypal/ec-checkout-success/{plan}', 'PayPalController@getExpressCheckoutSuccess')->name('paypal.ec-checkout-success');
       Route::get('paypal/adaptive-pay', 'PayPalController@getAdaptivePay');
@@ -75,6 +76,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::post('paypal/notify', 'Dashboard\\PayPalController@notify');
+Route::post('stripe/notify', 'Dashboard\\StripeController@notify');
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

@@ -20,7 +20,7 @@ class SubscriptionController extends Controller
         $user->updateDefaultPaymentMethod($paymentMethod);
         $user
             ->newSubscription('main', $plan->stripe_plan)
-            ->trialDays(7)
+            // ->trialDays(7)
             ->create($paymentMethod, [
                 'email' => $user->email,
             ]);
@@ -30,5 +30,10 @@ class SubscriptionController extends Controller
         $user->save();
         
         return redirect()->route('home')->with(['code' => 'success', 'message' => 'Your plan subscribed successfully!']);
+    }
+
+    public function cancel(Request $request)
+    {
+        auth()->user()->subscription('main')->cancelNow();
     }
 }
