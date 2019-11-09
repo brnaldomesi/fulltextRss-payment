@@ -94,7 +94,7 @@ var KTDatatableRecordSelectionDemo = function() {
                     <div class="dropdown-menu dropdown-menu-right">\
                         <a class="dropdown-item" href="/dashboard/feeds/' + row.id + '/edit"><i class="la la-edit"></i> Edit</a>\
                         <button data-id=' + row.id + ' class="dropdown-item feed-remove-btn"><i class="la la-remove"></i> Delete</button>\
-                        <a class="dropdown-item" href="#"><i class="la la-print"></i> Full Text</a>\
+                        <a data-id=' + row.id + ' class="dropdown-item feed-full-text" href="/full-text-rss-3.9.5/makefulltextfeed.php?url=' + row.feed_url + '"><i class="la la-print"></i> Full Text</a>\
                         <a class="dropdown-item" href="#"><i class="la la-play"></i> Sus. Feed (me)</a>\
                         <a class="dropdown-item" href="#"><i class="la la-play"></i> Sus. Feed (global)</a>\
                     </div>\

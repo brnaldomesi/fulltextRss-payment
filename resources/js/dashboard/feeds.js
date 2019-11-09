@@ -35,6 +35,10 @@ function initFeedTable() {
     $('tbody tr td span button.feed-remove-btn[data-id=' + $(this).attr('data-id') + ']').trigger('click');
   });
 
+  $('body').on('click', 'div.dropdown-menu.dropdown-menu-right.show a.feed-full-text', function (){
+    $(this).attr('target', '_blank');
+  });
+
   $('#kt_datatable_delete_all').on('click', function (){
     var ids = datatable.rows('.kt-datatable__row--active').
             nodes().
