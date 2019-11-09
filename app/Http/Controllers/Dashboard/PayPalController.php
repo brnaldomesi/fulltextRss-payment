@@ -24,19 +24,6 @@ class PayPalController extends Controller
     {
         $this->provider = new ExpressCheckout();
     }
-    public function getIndex(Request $request)
-    {
-        $response = [];
-        if (session()->has('code')) {
-            $response['code'] = session()->get('code');
-            session()->forget('code');
-        }
-        if (session()->has('message')) {
-            $response['message'] = session()->get('message');
-            session()->forget('message');
-        }
-        return view('welcome', compact('response'));
-    }
     /**
      * @param \Illuminate\Http\Request $request
      *
@@ -130,29 +117,6 @@ class PayPalController extends Controller
         
         return redirect()->route('home')->with(['code' => 'danger', 'message' => 'Error processing PayPal payment']);
     }
-    public function getAdaptivePay()
-    {
-        $this->provider = new AdaptivePayments();
-        $data = [
-            'receivers'  => [
-                [
-                    'email'   => 'johndoe@example.com',
-                    'amount'  => 10,
-                    'primary' => true,
-                ],
-                [
-                    'email'   => 'janedoe@example.com',
-                    'amount'  => 5,
-                    'primary' => false,
-                ],
-            ],
-            'payer'      => 'EACHRECEIVER', // (Optional) Describes who pays PayPal fees. Allowed values are: 'SENDER', 'PRIMARYRECEIVER', 'EACHRECEIVER' (Default), 'SECONDARYONLY'
-            'return_url' => url('payment/success'),
-            'cancel_url' => url('payment/cancel'),
-        ];
-        $response = $this->provider->createPayRequest($data);
-        dd($response);
-    }
 
     public function cancel(Request $request) 
     {
@@ -160,7 +124,13 @@ class PayPalController extends Controller
             $this->provider = new ExpressCheckout();
         }
         $response = $this->provider->cancelRecurringPaymentsProfile(Invoice::where('user_id', auth()->user()->id)->latest()->first()->recurring_id);
-        dd($response);
+        if ($response['ACK'] == 'Success') {
+            Invoice::where('recurring_id', $response['PROFILEID'])->update(['payment_status' => 'canceled']);
+            auth()->user()->status = 'pending';
+            auth()->user()->save();
+
+            return view('dashboard.home');
+        }
     }
 
     /**

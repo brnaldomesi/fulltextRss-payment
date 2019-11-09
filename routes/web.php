@@ -62,11 +62,15 @@ Route::group(['middleware' => 'auth'], function () {
       Route::get('transactions', 'TransactionController@index')->name('transactions');
       Route::post('transactionstable', 'TransactionController@transactionsTable')->name('transactions.transactionsTable');
 
+      Route::get('userplan', 'PlanController@userplan')->name('userplan');
+
       Route::get('home', 'HomeController@index')->name('home');
       Route::get('plans', 'PlanController@index')->name('plans.index');
       Route::get('plan/{plan}/{billing_method}/{payment_plan}', 'PlanController@show')->name('plans.show');
+
       Route::post('subscription', 'SubscriptionController@create')->name('subscription.create');
       Route::get('subscription/cancel', 'SubscriptionController@cancel')->name('subscription.cancel');
+      
       Route::get('paypal/ec-checkout/{plan}', 'PayPalController@getExpressCheckout')->name('paypal.ec-checkout');
       Route::get('paypal/ec-checkout-success/{plan}', 'PayPalController@getExpressCheckoutSuccess')->name('paypal.ec-checkout-success');
       Route::get('paypal/adaptive-pay', 'PayPalController@getAdaptivePay');
