@@ -11,7 +11,7 @@
                           <h5>{{ $plan->name }}</h5>
                           <h5>${{ number_format($plan->cost, 2) }} {{ $plan->payment_plan }}</h5>
                           <h5>{{ $plan->description }}</h5>
-                          <a href="@if(!Auth::user()->stripe_id) {{ route('paypal.cancel')}} @else {{ route('subscription.cancel')}} @endif"
+                          <a href="@if( Auth::user()->payment_method == 'paypal') {{ route('paypal.cancel')}} @else {{ route('subscription.cancel')}} @endif"
                               class="btn btn-outline-danger">Cancel</a>
                       </div>
                   </li>

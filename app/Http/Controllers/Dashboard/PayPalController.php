@@ -108,6 +108,7 @@ class PayPalController extends Controller
             $user = auth()->user();
             $user->status = 'active';
             $user->plan_id = $plan->id;
+            $user->payment_method = 'paypal';
             if ($user->trial_ends_at == NULL) {
                 $user->trial_ends_at = Carbon::now()->addDays(7);
             }
