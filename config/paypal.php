@@ -24,7 +24,7 @@ return [
     'payment_action' => 'Sale', // Can only be 'Sale', 'Authorization' or 'Order'
     'currency'       => env('PAYPAL_CURRENCY', 'USD'),
     'billing_type'   => 'MerchantInitiatedBilling',
-    'notify_url'     => 'http://56e2b32c.ngrok.io/paypal/notify', // Change this accordingly for your application.
+    'notify_url'     => 'http://app.contentaggregator.com/paypal/notify', // Change this accordingly for your application.
     'locale'         => '', // force gateway language  i.e. it_IT, es_ES, en_US ... (for express checkout only)
     'validate_ssl'   => false, // Validate SSL when creating api client.
     'invoice_prefix' => env('PAYPAL_INVOICE_PREFIX', 'FULLTEXTRSSFEEDS'),

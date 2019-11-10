@@ -172,6 +172,7 @@
                                     <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('userplan') }} @endif" class="@if(Request::segment(2)=='userplan') active @endif">
                                         <i class="fa fa-edit"></i> My Plan
                                     </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
