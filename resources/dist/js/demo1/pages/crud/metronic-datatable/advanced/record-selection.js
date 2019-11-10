@@ -203,7 +203,7 @@ var KTDatatableRecordSelectionDemo = function() {
         template: function(row) {
           var status = {
               'pending': {'title': 'pending', 'class': ' kt-badge--primary'},
-              'active': {'title': 'actvie', 'class': ' kt-badge--success'},
+              'active': {'title': 'active', 'class': ' kt-badge--success'},
           };
           return '<span class="kt-badge ' + status[row.status].class + ' kt-badge--inline kt-badge--pill">' + status[row.status].title + '</span>';
         },
