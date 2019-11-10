@@ -26,6 +26,7 @@ class SubscriptionController extends Controller
             ]);
 
         $user->status = 'active';
+        $user->payment_method = 'stripe';
         $user->plan_id = $plan->id;
         $user->save();
         
