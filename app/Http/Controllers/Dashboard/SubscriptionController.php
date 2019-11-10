@@ -35,6 +35,8 @@ class SubscriptionController extends Controller
     public function cancel(Request $request)
     {
         auth()->user()->subscription('main')->cancelNow();
+        auth()->user()->status = 'pending';
+        auth()->user()->save();
         return view('dashboard.home');
     }
 }
