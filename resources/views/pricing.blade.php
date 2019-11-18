@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('description')
+    <meta name="description" content="{{ config('seoinfo.description.pricing')}}">
+@endsection
+
+@section('title')
+    <title>{{ config('seoinfo.title.pricing') }}</title>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
