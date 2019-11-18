@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    @yield('description')
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'FetchRssFeeds') }}</title>
+    @yield('title')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -46,14 +46,16 @@
                             <a class="nav-link" href="{{ route('pricing') }}">{{ __('Pricing') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tour') }}">{{ __('Tour') }}</a>
+                            <a class="nav-link" href="{{ route('tour') }}">{{ __('How It Works') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a>
                         </li>
+                        {{--
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('blog') }}">{{ __('Blog') }}</a>
                         </li>
+                        --}}
                         <li class="nav-item mr-1 mb-sm-1 mb-md-0">
                             <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
