@@ -59,9 +59,9 @@
         !!}
       </div>
     </div>
-
+        
     <div class="form-group row">
-      {!! Form::label('regx_curations', 'Keywords Filters', ['class' => 'col-md-3 col-form-label text-md-right']) !!}
+      {!! Form::label('regx_curations', 'Regx Curations', ['class' => 'col-md-3 col-form-label text-md-right']) !!}
       <div class="col-md-9">
         {!! Form::text(
               'regx_curations', 
