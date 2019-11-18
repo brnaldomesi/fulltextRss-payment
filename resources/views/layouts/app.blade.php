@@ -23,8 +23,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand text-success font-weight-bold" href="#">
-                  <h1>{{ __('Full Text RSS Feeds') }}<sup>{{ __('Engine & API') }}</sup></h1>
+                <a class="navbar-brand text-success font-weight-bold" href="/">
+                  <h1>{{ __('Content Aggregator') }}</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
                     <ul class="navbar-nav ml-auto flex-md-wrap">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" href="/">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('pricing') }}">{{ __('Pricing') }}</a>

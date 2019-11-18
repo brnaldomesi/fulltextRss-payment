@@ -15,6 +15,9 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
+  if (auth()->check()) {
+    return redirect('/dashboard/home');
+  }
   return view('home');
 })->name('home');
 
