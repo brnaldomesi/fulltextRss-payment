@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title>{{ config('app.name', 'Full Text RSS Feeds Engine & API | Content Aggregator') }}</title>
+    <title>Full Text RSS Feeds Engine & API | Content Aggregator</title>
     
     <!-- Scripts -->
     <script src="{{ asset('js/theme.js') }}"></script>
@@ -19,6 +19,7 @@
     
     <!-- Styles -->
     <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 </head>
 
@@ -38,13 +39,13 @@
                 <div class="collapse navbar-collapse ml-1" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
+                        <li class="nav-item @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif"">
                             <a class="nav-link" href="#">
                                 <i class="fa fa-tachometer"></i>{{ __('Admin') }}
                             </a>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif"">
                             <a class="nav-link dropdown-toggle" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre href="#">
                                 <i class="fa fa-users"></i>
@@ -65,15 +66,15 @@
                             </div>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif">
                             <a class="nav-link dropdown-toggle" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre href="#">
                                 <i class="fa fa-rss"></i>
                                 {{ __('News Feed') }} <span class="caret"></span>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('feeds.new') }} @endif" onclick="">
+                            <div class="dropdown-menu dropdown-menu-right ">
+                                <a class="dropdown-item " href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('feeds.new') }} @endif" onclick="">
                                     <i class="fa fa-plus-square"></i>
                                     {{ __('Create News Feed Channel') }}
                                 </a>
@@ -95,12 +96,12 @@
                             </div>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif">
                             <a class="nav-link" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('smtp') }} @endif">
                                 <i class="fa fa-pencil-square-o"></i>{{ __('Edit sender credentials') }}
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif">
                           <a class="nav-link" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('transactions') }} @endif">
                               <i class="fa fa-dollar-sign"></i>{{ __('Transactions') }}
                           </a>
@@ -143,7 +144,7 @@
         <main class="py-4">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col-2 @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif">
                         <div class="well sidebar-nav">
                             <ul class="nav nav-list left-menu">
                                 <li class="nav-header"><i class="fa fa-tachometer fa-2x"></i> Administration</li>
@@ -217,8 +218,8 @@
                     };
                     </script>
 
-                    <div class="col-10">
-                      <div class="container ml-0">
+                    <div class="@if(Auth::user() && Auth::user()->status == 'pending') col-12 @else col-10 @endif">
+                      <div class="container @if(Auth::user() && Auth::user()->status == 'active') ml-0 @endif">
                         <div class="row justify-content-center">
                           @yield('content')
                         </div>

@@ -6,7 +6,7 @@ suites:
         modules:
             enabled:
                 - REST:
-                    url: http://localhost/full-text-rss-3.9.5
+                    url: http://localhost/engine
                     depends: PhpBrowser
 
 paths:

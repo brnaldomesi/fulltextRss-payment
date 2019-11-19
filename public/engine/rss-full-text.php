@@ -1226,7 +1226,7 @@ function get_self_url() {
 	$host = $_SERVER['HTTP_HOST'];
 	$path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 	$_qs_url = (strtolower(substr($url, 0, 7)) == 'http://') ? substr($url, 7) : $url;
-	$self = $scheme.htmlspecialchars($host.$path).'/makefulltextfeed.php?url='.urlencode($_qs_url);
+	$self = $scheme.htmlspecialchars($host.$path).'/rss-full-text.php?url='.urlencode($_qs_url);
 
 	// hide API key if we can
 	if (isset($_GET['key']) && ($key_index = array_search($_GET['key'], $options->api_keys)) !== false) {

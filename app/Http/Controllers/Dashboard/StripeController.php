@@ -14,11 +14,23 @@ class StripeController extends CashierController
     public function notify(Request $request)
     {
         error_log($request['type']);
-        if ($request['type'] == 'invoice.payment_succeeded') {
+        if ($request['type'] == 'payment_intent.created') {
             $transaction = new Transaction();
+            $transaction->user_id = User::where('stripe_id', $request['data']['object']['customer'])->first()->id;
+            $transaction->transaction_id = $request['data']['object']['charges']['data'][0]['balance_transaction'];
+            $transaction->stripe_invoice_id = $request['data']['object']['invoice'];
+            try{
+            $transaction->save();
+            } catch (\Exception $e) {
+              error_log($e->getMessage());
+
+            }
+        }
+        if ($request['type'] == 'invoice.payment_succeeded') {
+            
+            $transaction = Transaction::where('stripe_invoice_id', $request['data']['object']['id'])->first();
             $transaction->price = $request['data']['object']['amount_due'] / 100;
             $transaction->payment_status = 'Completed';
-            $transaction->user_id = Subscription::where('stripe_id', $request['data']['object']['subscription'])->first()->user_id;
             $transaction->save();
 
             $user = User::find($transaction->user_id);
@@ -27,10 +39,9 @@ class StripeController extends CashierController
         };
 
         if ($request['type'] == 'invoice.payment_failed') {
-            $transaction = new Transaction();
+            $transaction = Transaction::where('stripe_invoice_id', $request['data']['object']['id'])->first();
             $transaction->price = $request['data']['object']['amount_due'] / 100;
             $transaction->payment_status = 'Failed';
-            $transaction->user_id = Subscription::where('stripe_id', $request['data']['object']['subscription'])->first()->user_id;
             $transaction->save();
 
             $user = User::find($transaction->user_id);

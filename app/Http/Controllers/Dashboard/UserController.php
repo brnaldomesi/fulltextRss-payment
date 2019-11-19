@@ -28,7 +28,7 @@ class UserController extends Controller
 
       $user = auth()->user();
       
-      $input = array_merge($request->all(), ['team_id' => $user->team_id]);
+      $input = array_merge($request->all(), ['team_id' => $user->team_id, 'status' => $user->status]);
       $pwd = $input['password'];
       if(!is_null($pwd)) {
         $input['password'] = Hash::make($pwd);

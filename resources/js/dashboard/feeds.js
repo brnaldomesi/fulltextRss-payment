@@ -36,7 +36,8 @@ function initFeedTable() {
   });
 
   $('body').on('click', 'div.dropdown-menu.dropdown-menu-right.show a.feed-full-text', function (){
-    $(this).attr('target', '_blank');
+    $('#feed_url').val($(this).attr('data-url'))
+    $('#feed_form').submit()
   });
 
   $('#kt_datatable_delete_all').on('click', function (){
