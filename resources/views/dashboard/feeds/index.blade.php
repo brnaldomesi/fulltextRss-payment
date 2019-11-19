@@ -89,6 +89,11 @@
       </div>
     </div>
   </div>
+  <form id="feed_form" method="GET" action="/engine/rss-full-text.php" target="_blank">
+    <input type="hidden" name="url" id="feed_url">
+    <input type="hidden" name="key" value="">
+    <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+  </form>
 @endsection
 
 @section('extraJs')

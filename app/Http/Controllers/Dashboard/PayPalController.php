@@ -165,6 +165,7 @@ class PayPalController extends Controller
                     $transaction->price = $post['amount'];
                     $transaction->payment_status = 'Completed';
                     $transaction->recurring_id = $invoice->recurring_id;
+                    $transaction->transaction_id = $post['txn_id'];
                     $transaction->user_id = $invoice->user_id;
                     $transaction->save();
     
@@ -186,6 +187,7 @@ class PayPalController extends Controller
                     $transaction->price = $post['amount'];
                     $transaction->payment_status = 'Failed';
                     $transaction->recurring_id = $invoice->recurring_id;
+                    $transaction->transaction_id = $post['txn_id'];
                     $transaction->user_id = $invoice->user_id;
                     $transaction->save();
     
