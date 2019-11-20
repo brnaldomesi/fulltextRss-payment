@@ -10,6 +10,9 @@
     
     <title>Full Text RSS Feeds Engine & API | Content Aggregator</title>
     
+    <!--Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" />
+    
     <!-- Scripts -->
     <script src="{{ asset('js/theme.js') }}"></script>
     
