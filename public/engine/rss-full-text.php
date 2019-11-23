@@ -28,6 +28,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Request this file passing it a web page or feed URL in the querystring: makefulltextfeed.php?url=example.org/article
 // For more request parameters, see http://help.fivefilters.org/customer/portal/articles/226660-usage
 
+
+require_once(dirname(__FILE__).'/../../vendor/autoload.php');
+$app = require_once(dirname(__FILE__).'/../../bootstrap/app.php');
+
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+$response = $kernel->handle(
+    $request = Illuminate\Http\Request::capture()
+);
+
+if (!auth()->check()) {
+  die('Unauthorized user!');
+}
+
 error_reporting(E_ALL ^ E_NOTICE);
 libxml_use_internal_errors(true);
 libxml_disable_entity_loader(true);
@@ -126,12 +140,6 @@ if ($options->cors) header('Access-Control-Allow-Origin: *');
 $debug_mode = false;
 $debug_show_raw_html = false;
 $debug_show_parsed_html = false;
-
-if(!isset($_REQUEST['_token'])) {
-  die('Unathorized user!');
-} else if (base64_decode($_REQUEST['_token']) !== 'full_text_rss_feeds_token') {
-  die('Unathorized user!');
-}
 
 if (isset($_REQUEST['debug'])) {
 	if ($options->debug === true || $options->debug == 'user') {
@@ -1719,3 +1727,5 @@ function debug($msg) {
 		flush();
 	}
 }
+
+$kernel->terminate($request, $response);

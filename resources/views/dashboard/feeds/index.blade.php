@@ -91,9 +91,6 @@
   </div>
   <form id="feed_form" method="GET" action="/engine/rss-full-text.php" target="_blank">
     <input type="hidden" name="url" id="feed_url">
-    <input type="hidden" name="_token" value="{{ base64_encode('full_text_rss_feeds_token') }}">
-    <input type="hidden" name="key" value="">
-    <input type="hidden" name="email" value="{{ Auth::user()->email }}">
   </form>
 @endsection
 
