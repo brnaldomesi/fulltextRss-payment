@@ -70,7 +70,7 @@
             }
         };
 
-        const stripe = Stripe('{{ env("STRIPE_KEY") }}', { locale: 'en' }); // Create a Stripe client.
+        const stripe = Stripe("{{ config('services.stripe.key') }}", { locale: 'en' }); // Create a Stripe client.
         const elements = stripe.elements(); // Create an instance of Elements.
         const cardElement = elements.create('card', { style: style }); // Create an instance of the card Element.
         const cardButton = document.getElementById('card-button');
