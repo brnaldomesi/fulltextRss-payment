@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Auth::routes();
+
 Route::get('/', function () {
   return view('home');
 });
@@ -84,7 +87,3 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::post('paypal/notify', 'Dashboard\\PayPalController@notify');
 Route::post('stripe/notify', 'Dashboard\\StripeController@notify');
-
-Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');

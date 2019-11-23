@@ -126,6 +126,13 @@ if ($options->cors) header('Access-Control-Allow-Origin: *');
 $debug_mode = false;
 $debug_show_raw_html = false;
 $debug_show_parsed_html = false;
+
+if(!isset($_REQUEST['_token'])) {
+  die('Unathorized user!');
+} else if (base64_decode($_REQUEST['_token']) !== 'full_text_rss_feeds_token') {
+  die('Unathorized user!');
+}
+
 if (isset($_REQUEST['debug'])) {
 	if ($options->debug === true || $options->debug == 'user') {
 		$debug_mode = true;
