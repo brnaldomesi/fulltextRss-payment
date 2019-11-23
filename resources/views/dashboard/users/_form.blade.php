@@ -44,7 +44,8 @@
         {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
       </div>
     </div>
-
+    
+    {{--  
     <div class="form-group row">
       {!! Form::label('filter_keywords', 'Keywords Filters', ['class' => 'col-md-3 col-form-label text-md-right']) !!}
       <div class="col-md-9">
@@ -59,7 +60,6 @@
         !!}
       </div>
     </div>
-    {{--  
     <div class="form-group row">
       {!! Form::label('regx_curations', 'Regx Curations', ['class' => 'col-md-3 col-form-label text-md-right']) !!}
       <div class="col-md-9">
@@ -87,7 +87,7 @@
           )
         !!}
       </div>
-  </div>
+    </div>
 
     <div class="form-group text-center">
       {!! Form::submit('Save', ['class' => 'btn btn-primary mr-2']) !!}

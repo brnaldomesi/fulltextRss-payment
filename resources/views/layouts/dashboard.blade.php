@@ -42,12 +42,6 @@
                 <div class="collapse navbar-collapse ml-1" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif"">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-tachometer"></i>{{ __('Admin') }}
-                            </a>
-                        </li>
-
                         <li class="nav-item dropdown @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif"">
                             <a class="nav-link dropdown-toggle" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre href="#">
@@ -150,7 +144,7 @@
                     <div class="col-2 @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif">
                         <div class="well sidebar-nav">
                             <ul class="nav nav-list left-menu">
-                                <li class="nav-header"><i class="fa fa-tachometer fa-2x"></i> Administration</li>
+                                <li class="nav-header"><i class="fa fa-tachometer fa-2x"></i> Dashboard</li>
                                 <li>
                                     <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('users') }} @endif" class="@if(Request::segment(2)=='users') active @endif">
                                         <i class="fa fa-users"></i> Team Members
