@@ -93,11 +93,11 @@
                             </div>
                         </li>
 
-                        <li class="nav-item @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif">
+                        {{-- <li class="nav-item @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif">
                             <a class="nav-link" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('smtp') }} @endif">
                                 <i class="fa fa-pencil-square-o"></i>{{ __('Edit sender credentials') }}
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif">
                           <a class="nav-link" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('transactions') }} @endif">
                               <i class="fa fa-dollar-sign"></i>{{ __('Transactions') }}
@@ -156,11 +156,11 @@
                                         <i class="fa fa-rss"></i> News Feed Channels
                                     </a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('smtp') }} @endif" class="@if(Request::segment(2)=='smtp') active @endif">
                                         <i class="fa fa-pencil-square-o"></i> Sender Credentials
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('transactions') }} @endif" class="@if(Request::segment(2)=='transactions') active @endif">
                                         <i class="fa fa-dollar-sign"></i> Transactions
