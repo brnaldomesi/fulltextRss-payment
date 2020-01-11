@@ -172,7 +172,9 @@ var KTDatatableRecordSelectionDemo = function() {
         field: 'name',
         title: 'Name',
         template: function(row) {
-          return row.name === null ? '' : row.name;
+          var first_name = row.first_name === null ? '' : row.first_name;
+          var last_name = row.last_name === null ? '' : row.last_name;
+          return (first_name + " " + last_name);
         },
     }, {
         field: 'email',
@@ -314,6 +316,7 @@ var KTDatatableRecordSelectionDemo = function() {
     },{
       field: 'transaction_id',
       title: 'Transaction ID',
+      width: '250',
       // callback function support for column rendering
       template: function(row) {
         return row.transaction_id;

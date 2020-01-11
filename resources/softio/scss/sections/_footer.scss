@@ -1,0 +1,234 @@
+/* Footer Area Start */
+
+.footer{
+  padding-top: 100px;
+  overflow: hidden;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center 140px;
+  background-size: cover;
+  background: $bg-color1;
+  &.home5{
+    background: $bg-color3;
+    .copy-bg{
+      background: $bg-color3;
+    }
+  }
+  .footer-logo{
+    margin-top: -10px;
+    margin-bottom: 25px;
+  }
+  
+  .footer-widget{
+    .title{
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 500;
+      color: #fff;
+    }
+  
+  }
+  .about-widget{
+    .fotter-logo{
+      display: inline-block;
+    }
+    .about-content{
+      margin-top: 23px;
+      p{
+        color: rgba(255, 255, 255, 0.80);
+      }
+    }
+  
+    .subscribe-form{
+        position: relative;
+        margin-top: 25px;
+        input{
+            width: 100%;
+            height: 50px;
+            font-size: 15px;
+            border: 0px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 0px 60px 0px 20px;
+            color: #fff;
+            &::placeholder{
+              color: rgba(255, 255, 255, 0.80)!important;
+            }
+        }
+        .submit-btn{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            height: 40px;
+            width: 40px;
+            background: $bg-color1;
+            color: #fff;
+            border: 0px;
+            border-radius: 50px;
+            background-size: 100% 200%;
+            transition: $transition;
+            &:focus{
+                outline: 0px;
+                box-shadow: unset;
+            }
+            &:hover{
+              
+              background-size: 200% 100%;
+            }
+        }
+    }
+  }
+  .info-link-widget{
+    ul{
+      padding-left: 0px;
+      margin-bottom: 0px;
+      li{
+        list-style: none;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
+        &:last-child{
+          border-bottom: 0px;
+        }
+        a{
+          transition: $transition;
+          font-size: .9rem;
+          line-height: 35px;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 0.80);
+          &:hover{
+            color: rgba(255, 255, 255, 1);
+            padding-left: 7px;
+          }
+        i{
+          font-size: 14px;
+          padding-right: 4px;
+        }
+      }
+    }
+  }
+  }
+          
+  .copy-bg{
+    margin-top: 87px;
+    padding: 24px 0px 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    background: $bg-color1;
+    .left-area{
+        p{
+          font-size: .8rem;
+          line-height: 26px;
+          margin-bottom: 0px;
+          color: rgba(255, 255, 255, 0.80);
+        }
+        a{
+          font-size: .9rem;
+          line-height: 26px;
+          margin-bottom: 0px;
+          transition: $transition;
+          &:hover{
+            color: rgba(255, 255, 255, 1);
+            font-size: .95rem;
+          }
+        }
+    }
+    .social-links{
+      text-align: right;
+      li{
+        display: inline-block;
+        margin-right: 10px;
+        &:last-child{
+          margin-right: 0px;
+        }
+        a{
+          font-size: 14px;
+          border-radius: 50%;
+          color: rgba(255, 255, 255, 0.80);
+          transition: $transition;
+          &:hover{
+          color: rgba(255, 255, 255, 1);
+          }
+        }
+      }
+    }
+
+  }
+     
+  .subscribe-box{
+    margin-bottom: 110px;
+    z-index: 99;
+    // background: url(../images/newsletter.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 50px 60px 55px;
+    box-shadow: 0px 10px 20px rgba(#000, .1);
+    .heading-area{
+      text-align: center;
+      .sub-title{
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 34px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        @include gradient-text();
+      }
+      .title{
+        font-size: 40px;
+        line-height: 50px;
+        font-weight: 700;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+      }
+    }
+    .icon{
+      width: 100%;
+      text-align: right;
+      img{
+        display: inline-block;
+      }
+    }
+    .form-area{
+      width: 100%;
+        input{
+          width: 100%;
+          height: 50px;
+          background: none;
+          border: 0px;
+          border-bottom: 1px solid #b4b8d1;
+          border-radius: 0px;
+          color: $body-color;
+          @include placeholder-color($body-color);
+        }
+    }
+    .button-area{
+      width: 100%;
+      .mybtn1{
+        display: block;
+        width: 100%;
+        height: 50px;
+        position: relative;
+        background-image: linear-gradient(to right, rgb(255, 52, 77), rgb(210, 39, 60));
+        span{
+          position: absolute;
+          top: 0;
+          right: 0px;
+          width: 50px;
+          height: 50px;
+          text-align: center;
+          line-height: 50px;
+          background: #db5263;
+          border-radius: 50%;
+        }
+        &:hover{
+          
+          background-image: linear-gradient(to left, rgb(255, 52, 77), rgb(210, 39, 60));
+        }
+      }
+    }
+
+  }
+    
+}
+
+

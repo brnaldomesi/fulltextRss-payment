@@ -1,0 +1,95 @@
+
+/* Index 2 Area Start */
+.index2{
+    .hero-area{
+        padding: 206px 0px 400px;
+        position: relative;
+        &::after{
+            border-radius: 0px;
+        }
+        .left-content{
+            text-align: center;
+            .title{
+                margin-bottom: 20px;
+            }
+            .text{
+                padding: 0px 120px;
+            }
+            .subscribe-area{
+                padding: 0px 150px;
+            }
+        }
+        
+    }
+    .about-area .content .section-heading {
+        margin-bottom: 34px;
+    }
+    .video-area{
+        margin-top: -250px;
+        .hero-img{
+            display: inline-block;
+            position: relative;
+            box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            .video-play-btn{
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                position: absolute;
+                z-index: 9;
+            }
+            .pattern{
+                position: absolute;
+                left: 20px;
+                bottom: 30px;
+                animation: h-p-a 7s linear infinite;
+            }
+        }
+    }
+
+    .features{
+        padding-top: 115px;
+    }
+
+    .team{
+        padding-top: 0px;
+    }  
+}
+.about-area{
+    .about-list.with-icon{
+        li{
+            .feature-info{
+                display: flex;
+                margin-bottom: 9px;
+                .icon{
+                    font-size: 40px;
+                    line-height: 80px;
+                    width: 80px;
+                    height: 80px;
+                    background: rgba($base-color, 0.06);
+                    border-radius: 50%;
+                    display: inline-block;
+                    text-align: center;
+                    color: $base-color;
+                    margin-right: 20px;
+                }
+                .inner-content{
+                    flex: 1;
+                    .title{
+                        font-size: 24px;
+                        line-height: 34px;
+                    }
+                    p{
+                        padding-left: 0px;
+                    }
+                }
+            }
+            &:last-child{
+                .feature-info{
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+}

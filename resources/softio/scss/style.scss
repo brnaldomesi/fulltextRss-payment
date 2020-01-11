@@ -1,0 +1,59 @@
+
+/*========	Table of Css Content ==========*/
+
+/* Typography */
+/* Normalize  */
+/* Global style */
+/* Breadcrumb Area Start */
+/* Main Menu Area Start */
+/* Footer Area Start */
+/* Hero Area Start */
+/* Partner Area Start */
+/* Our Features Start */
+/* Important Features Start */
+/* How It Work Start */
+/* Testimonial Start */
+/* Pricing Area Start */
+/* Counter Area Start */
+/* Team Area Start */
+/* Faq Area Start */
+/* Get Start Area Start */
+/* Blog Area Start */
+/* Index 2 Area Start */
+
+/* 
+=========================
+
+=============================
+ */
+
+
+
+// Sass Global
+@import "main/variables";
+@import "main/mixins";
+@import "main/normalize";
+@import "main/animation";
+@import "main/global";
+
+// Sass Sections
+@import "sections/_header";
+@import "sections/_footer";
+
+// Sass page
+@import "pages/_home-page";
+@import "pages/_blog";
+@import "pages/_contact";
+@import "pages/_other";
+@import "pages/_home-page2";
+@import "pages/_home-page3";
+@import "pages/_home-page4";
+@import "pages/_home-page5";
+
+
+
+
+
+
+
+

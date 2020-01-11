@@ -51,8 +51,8 @@
         </script>
       @endif
       <div>
-          <h1>Welcome, {{ Auth::user()->email }}</h1>
-          <h2>Hi there {{ Auth::user()->email }}, here's the admin section for your account , you can manage your subscriptions and sub-users here....please feel free to get in touch with us anytime if there's anything we can help with or if you have any questions... </h2>                 
+          <h1>Welcome, {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</h1>
+          <h2>Hi there {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}, here's the admin section for your account , you can manage your subscriptions and sub-users here....please feel free to get in touch with us anytime if there's anything we can help with or if you have any questions... </h2>                 
       </div>
   @endif
 @endsection

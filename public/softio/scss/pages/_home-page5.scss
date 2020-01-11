@@ -1,0 +1,53 @@
+/* Home page 5 Start */
+.home5{
+    .base-btn1 {
+        background: #7280ff;
+        transition: #7280ff;
+        border: 1px solid  #7280ff;
+        &:hover {
+            color:  #7280ff;
+            background: #fff;
+        }
+    }
+    
+    .base-btn2 {
+        color:  #7280ff;
+        border: 1px solid #7280ff;
+        &:hover {
+            background: #7280ff;
+            color: #fff;
+        }
+    }
+    .footer .about-widget .subscribe-form .submit-btn{
+        background: #fff;
+        color: $bg-color3;
+    }
+    .single-blog .content .title:hover,
+    .single-team .content .social-links li a:hover,
+    .about-area .content .about-list li p i
+    {
+        color: #7280ff;
+    }
+    .bottomtotop i,
+    .pricing2 .price-box .price-rate,
+    .pricing2 .pricing-tab .tab-menu #my-tab .nav-item .nav-link.active, 
+    .pricing2 .pricing-tab .tab-menu #my-tab .nav-item .nav-link:hover{
+        background: #7280ff;
+    }
+    .video-play-btn,
+    .video-play-btn:before
+    {
+        background:  #7280ff;
+    }
+    
+    .hero-area .left-content .content .subscribe-area .subscribe-form .submit-btn{
+        background: #7280ff;
+        &:hover{
+            background: $bg-color3;
+        }
+    }
+}
+
+
+
+/* Home page 5 End */

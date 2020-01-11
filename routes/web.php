@@ -32,13 +32,13 @@ Route::get('/tour', function () {
   return view('tour');
 })->name('tour');
 
+Route::get('/usecases', function () {
+  return view('usecases');
+})->name('usecases');
+
 Route::get('/contact', function () {
   return view('contact');
 })->name('contact');
-
-Route::get('/blog', function () {
-  return view('blog');
-})->name('blog');
 
 Route::group(['middleware' => 'auth'], function () {
   Route::namespace('Dashboard')->group(function () {
