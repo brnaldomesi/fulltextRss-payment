@@ -13,6 +13,37 @@
 
   <div class="kt-portlet__body">
     <div class="form-group row">
+      {!! Form::label('first_name', 'First Name', ['class' => 'col-md-3 col-form-label text-md-right']) !!}
+      <div class="col-md-9">
+        {!! Form::text(
+              'first_name', 
+              null, 
+              [
+                'class' => "form-control",
+                'autocomplete' => 'first_name',
+                'autofocus'
+              ]
+            )
+        !!}
+      </div>
+    </div>
+    <div class="form-group row">
+      {!! Form::label('last_name', 'Last Name', ['class' => 'col-md-3 col-form-label text-md-right']) !!}
+      <div class="col-md-9">
+        {!! Form::text(
+              'last_name', 
+              null, 
+              [
+                'class' => "form-control",
+                'autocomplete' => 'last_name',
+                'autofocus'
+              ]
+            )
+        !!}
+      </div>
+    </div>  
+    {{--
+    <div class="form-group row">
       {!! Form::label('name', 'Name', ['class' => 'col-md-3 col-form-label text-md-right']) !!}
       <div class="col-md-9">
         {!! Form::text(
@@ -27,7 +58,7 @@
         !!}
       </div>
     </div>
-
+    --}}
     <div class="form-group row">
       {!! Form::label('email', 'E-mail', ['class' => 'col-md-3 col-form-label text-md-right']) !!}
       <div class="col-md-9 @error('email') is-invalid @enderror">

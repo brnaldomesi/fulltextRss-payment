@@ -1,0 +1,57 @@
+@import "../softio/scss/main/variables";
+
+.py-6 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.mainmenu-area {
+  .navbar {
+    #main_menu {
+      .navbar-nav {
+        .nav-item {
+          .nav-link:not(.active) {
+            &:hover {
+              font-size: .95rem;  
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.home-content {
+  .testimonial {
+    .content {
+      .testimonial-content {
+        height: 11rem;
+      }
+    }
+  }
+
+  .concept-content {
+    min-height: 5rem;
+  }
+
+  .transform {
+    transition: all 0.3s ease-in;
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .map {
+    height: 500px;
+  }
+
+  .pricing-tab {
+    .heading-sub-title {
+      min-height: 3rem;
+    }
+  }
+
+  .bg-home {
+    background-color: $bg-color2;
+  }
+}

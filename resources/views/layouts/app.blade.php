@@ -26,8 +26,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand text-success font-weight-bold" href="/">
-                  <img src="/images/logo.svg" width="300px">
+                <a class="navbar-brand font-weight-bold pt-0 pb-0" href="/">
+                    <img src="{{ asset('softio/images/logo.svg') }}" style="height:60px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -46,19 +46,14 @@
                             <a class="nav-link" href="/">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pricing') }}">{{ __('Pricing') }}</a>
+                          <a class="nav-link" href="{{ route('tour') }}">{{ __('How It Works') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tour') }}">{{ __('How It Works') }}</a>
+                          <a class="nav-link" href="{{ route('usecases') }}">{{ __('Use Cases') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a>
+                          <a class="nav-link" href="{{ route('pricing') }}">{{ __('Plans&Pricing') }}</a>
                         </li>
-                        {{--
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('blog') }}">{{ __('Blog') }}</a>
-                        </li>
-                        --}}
                         <li class="nav-item mr-1 mb-sm-1 mb-md-0">
                             <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>

@@ -1,0 +1,114 @@
+/* Home page 3 Start */
+.index3{
+    .hero-area::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+        background: #fff;
+        z-index: -1;
+    }
+    .mainmenu-area{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        &.nav-fixed{
+            background: #fff;
+        }
+        .navbar{
+            .navbar-brand{
+                img{
+                    max-height: 50px;
+                    // filter: brightness(100%) invert(1);
+                }
+            }
+            #main_menu{
+                .navbar-nav{
+                    .nav-item{
+                        .nav-link{
+                            color: $heading-color; 
+                            .mr-hover-effect{
+                                display: none;
+                            }
+                            &.active,
+                            &:hover
+                            &:focus
+                            {
+                                color: $base-color;
+                            }
+                            
+                        }
+                    }
+                }
+            } 
+            .base-btn2{
+                margin-left: 15px;
+                padding: 7px 20px;
+                background: $base-color;
+                border: 1px solid $base-color;
+                color: #fff;
+                &:hover{
+                    background: none;
+                    color: $base-color;
+                }
+              
+            }
+        }
+    }
+    .hero-area{
+        background: $bg-color2;
+        padding: 185px 0px 131px;
+        .left-content{ 
+            z-index: 9;
+            .content{ 
+                .title {
+                    color: $heading-color;
+                }
+                .text{
+                    color: $body-color;
+                }
+                .subscribe-area{
+                    display: flex;
+                    .subscribe-form{
+                        align-self: center;
+                        position: relative;
+                        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+                        border-radius: 50px; 
+                        flex: 1;
+                    }
+                    .video-play-btn {
+                        margin-left: 20px;
+                        display: inline-block;
+                        width: 55px;
+                        height: 55px;
+                        line-height: 55px;
+                        font-size: 18px;
+                       &::before {
+                            width: 60px;
+                            height: 60px;
+                        }
+                    }
+                }
+            }
+        }
+        .right-content{
+            text-align: center;
+            padding: 0px 30px;
+            img{
+                display: inline-block;
+            }
+        }
+    }
+    .features{
+        padding: 130px 0px 90px;
+        .section-heading{
+            text-align: left;
+        }
+    }
+    .partners{
+        padding-bottom: 0px;
+    }
+    
+}
+/* Home page 3 End */

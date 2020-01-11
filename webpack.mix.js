@@ -47,6 +47,12 @@ const theme = {
   destJs: [
     'public/vendors/global/vendors.bundle.js',
     'public/js/scripts.bundle.js',
+  ],
+  softioSource: [
+    'resources/softio'
+  ],
+  softioDest:[
+    'public/softio',
   ]
 }
 
@@ -69,3 +75,8 @@ mix.js('resources/js/app.js', 'public/js')
   .scripts(theme.destJs, 'public/js/theme.js')
   .sass('resources/sass/app.scss', 'public/css')
   .sass('resources/sass/dashboard.scss', 'public/css')
+  .sass('resources/sass/home.scss', 'public/css')
+  .copyDirectory(theme.softioSource[0], theme.softioDest[0])
+  .sass('resources/softio/scss/style.scss', 'public/softio/css');
+
+mix.version();

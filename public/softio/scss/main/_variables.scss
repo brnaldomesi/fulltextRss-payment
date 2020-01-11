@@ -1,0 +1,43 @@
+
+$base-color: #ed7161;
+$base-color2: #1c233c;
+$base-color3: #1c233c;
+$white: #fff;
+$body-color: #555;
+$heading-color: #131333;
+$star-color: #fc9715;
+$bg-color1: linear-gradient(50deg, #ed7161 0, #ed6161 100%);
+$bg-color2: #F7F8FC;
+$bg-color3: #1c233c;
+
+
+$facebook: #0069f7;
+$twitter: #00c6f7;
+$dribbble: #f7007a;
+$google-plus: #d1062c;
+$linkedin: #007bb5;
+
+
+
+/* Typography */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Rubik:300,400,500,700&display=swap');
+$body-font: 'Nunito', sans-serif;
+$heading-font: 'Rubik', sans-serif;
+
+//== font sizes
+$base-font-size: .9rem !default;
+$font-size-h1: 2.5rem !default;
+$font-size-h2: 2rem !default;
+$font-size-h3: 1.75rem !default;
+$font-size-h4: 1.5rem !default;
+//** Unit-less `line-height` for use in components like buttons.
+$line-height: 1.6 !default;
+// border-radius
+$border-radius-5: 5px !default;
+$border-radius-25: 25px !default;
+$border-radius-3: 3px !default;
+$border-radius-circle: 50% !default;
+//  transition
+$transition: all .3s ease-in;
+$transition-long: all .5s ease-in;

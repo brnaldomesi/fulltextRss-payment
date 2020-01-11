@@ -30,8 +30,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-client-admin">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                  <h1>{{ __('Full Text RSS Feeds') }}<sup>{{ __('Engine & API') }}</sup></h1>
+                <a class="navbar-brand font-weight-bold pt-0 pb-0" href="/">
+                    <img src="{{ asset('softio/images/logo.svg') }}" style="height:60px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -92,12 +92,13 @@
                                 </a> --}}
                             </div>
                         </li>
-
-                        {{-- <li class="nav-item @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif">
+                        {{--
+                        <li class="nav-item @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif">
                             <a class="nav-link" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('smtp') }} @endif">
                                 <i class="fa fa-pencil-square-o"></i>{{ __('Edit sender credentials') }}
                             </a>
-                        </li> --}}
+                        </li>
+                        --}}
                         <li class="nav-item @if(Auth::user() && Auth::user()->status == 'pending') d-none @endif">
                           <a class="nav-link" href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('transactions') }} @endif">
                               <i class="fa fa-dollar-sign"></i>{{ __('Transactions') }}
@@ -112,7 +113,7 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fa fa-user"></i>
-                                {{ Auth::user()->email }} <span class="caret"></span>
+                                {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right left-auto" >
@@ -156,11 +157,13 @@
                                         <i class="fa fa-rss"></i> News Feed Channels
                                     </a>
                                 </li>
-                                {{-- <li>
+                                {{--
+                                <li>
                                     <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('smtp') }} @endif" class="@if(Request::segment(2)=='smtp') active @endif">
                                         <i class="fa fa-pencil-square-o"></i> Sender Credentials
                                     </a>
-                                </li> --}}
+                                </li>
+                                --}}
                                 <li>
                                     <a href="@if(Auth::user() && Auth::user()->status == 'pending') # @else {{ route('transactions') }} @endif" class="@if(Request::segment(2)=='transactions') active @endif">
                                         <i class="fa fa-dollar-sign"></i> Transactions
